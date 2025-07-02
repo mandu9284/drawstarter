@@ -17,7 +17,7 @@ export default function DrawPage() {
       timerRef.current = setTimeout(() => {
         setTimeLeft(timeLeft - 1);
       }, 1000);
-    } else if (timeLeft === 0) {
+    } else if (timeLeft === 0 || !hasCompleted) {
       setIsRunning(false);
       setHasCompleted(true);
       if (hasCompleted) {
@@ -35,6 +35,7 @@ export default function DrawPage() {
 
   const toggleTimer = () => { setIsRunning(!isRunning); }
   const resetTimer = () => { setIsRunning(false); setTimeLeft(DEFAULT_TIME); }
+  const completeNow = () => { setIsRunning(false); setTimeLeft(0); }
 
   const formatTime = (sec: number) => {
     const m = Math.floor(sec / 60).toString().padStart(2, "0");
@@ -51,6 +52,7 @@ export default function DrawPage() {
           {isRunning ? "PAUSE" : "START"}
         </button>
         <button className="bg-gray-200 px-4 py-2 rounded" onClick={resetTimer}>RESTART</button>
+        <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={completeNow}>COMPLETE</button>
       </div>
     </div>
   )
