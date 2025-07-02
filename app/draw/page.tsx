@@ -1,91 +1,42 @@
 "use client"
 
+import { TimerControls } from "@/components/draw/TimerControls";
+import { TimerDisplay } from "@/components/draw/TimerDisplay";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-
-const DEFAULT_SECOND = 25 * 60;
-const DEFAULT_MINUTE = 25;
+import { useEffect } from "react";
+import { useTimer } from "@/hooks/useTimer";
 
 export default function DrawPage() {
   const router = useRouter();
-
-  const [timeLeft, setTimeLeft] = useState(DEFAULT_SECOND);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const [isRunning, setIsRunning] = useState(false);
-  const [hasCompleted, setHasCompleted] = useState(false);
+  
+  const {
+    timeLeft,
+    isRunning,
+    toggleTimer,
+    resetTimer,
+    completeNow,
+    hasCompleted
+  } = useTimer();
 
   useEffect(() => {
-    if (isRunning && timeLeft > 0) {
-      timerRef.current = setTimeout(() => {
-        setTimeLeft(timeLeft - 1);
-      }, 1000);
-    } else if (timeLeft === 0 && !hasCompleted) {
-      setIsRunning(false);
-      setHasCompleted(true);
-      addToTotalMinutes(DEFAULT_MINUTE);
-      addToTodayMinutes(DEFAULT_MINUTE);
+    if (hasCompleted) {
       router.push("/done");
     }
-
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [timeLeft, isRunning, hasCompleted, router]);
-
-  const toggleTimer = () => { setIsRunning(!isRunning); }
-  const resetTimer = () => { setIsRunning(false); setTimeLeft(DEFAULT_SECOND); }
-  const completeNow = () => {
-    setIsRunning(false); 
-    const spentMinutes = Math.floor((DEFAULT_SECOND - timeLeft) / 60);
-    addToTotalMinutes(spentMinutes);
-    addToTodayMinutes(spentMinutes);
-    router.push("/done");
-  }
-  const addToTotalMinutes = (mins: number) => {
-    const prev = localStorage.getItem("totalMinutes");
-    const total = (prev ? parseInt(prev, 10) : 0) + mins;
-    localStorage.setItem("totalMinutes", total.toString());
-  }
-
-  const addToTodayMinutes = (mins: number) => {
-    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-    const prev = localStorage.getItem(`day-${today}`);
-    const total = (prev ? parseInt(prev, 10) : 0) + mins;
-    localStorage.setItem(`day-${today}`, total.toString());
-  }
-
-  const formatTime = (sec: number) => {
-    const m = Math.floor(sec / 60).toString().padStart(2, "0");
-    const s = (sec % 60).toString().padStart(2, "0");
-    return `${m}:${s}`;
-  }
+  }, [hasCompleted, router]);
 
   return (
     <div className="space-y-6 text-center px-4 sm:px-6 md:px-8">
       <h2 className="text-2xl sm:text-3xl font-semibold">⏱️ 타이머</h2>
-      <p className="text-5xl sm:text-6xl font-mono">{formatTime(timeLeft)}</p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded text-sm sm:text-base"
-          onClick={toggleTimer}
-        >
-          {isRunning ? "PAUSE" : "START"}
-        </button>
-        <button
-          className="bg-gray-300 px-4 py-2 rounded text-sm sm:text-base dark:bg-gray-700"
-          onClick={resetTimer}
-        >
-          RESTART
-        </button>
-        <button
-          className="bg-green-500 text-white px-4 py-2 rounded text-sm sm:text-base"
-          onClick={completeNow}
-        >
-          COMPLETE
-        </button>
-      </div>
+      <TimerDisplay time={timeLeft} />
+      <TimerControls
+        isRunning={isRunning}
+        onToggle={toggleTimer}
+        onReset={resetTimer}
+        onComplete={() => {
+          completeNow();
+          router.push("/done");
+        }}
+      />
     </div>
   )
 }
