@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className="bg-gray-50 text-gray-800 font-sans">
         <main className="max-w-md mx-auto p-4">{children}</main>
       </body>
