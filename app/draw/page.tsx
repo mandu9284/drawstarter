@@ -3,27 +3,27 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const DEFAULT_TIME = 25 * 60; // 25분
+const DEFAULT_SECOND = 25 * 60;
+const DEFAULT_MINUTE = 25;
 
 export default function DrawPage() {
-  const [timeLeft, setTimeLeft] = useState(DEFAULT_TIME);
+  const router = useRouter();
+
+  const [timeLeft, setTimeLeft] = useState(DEFAULT_SECOND);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [hasCompleted, setHasCompleted] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
       timerRef.current = setTimeout(() => {
         setTimeLeft(timeLeft - 1);
       }, 1000);
-    } else if (timeLeft === 0 || !hasCompleted) {
+    } else if (timeLeft === 0 && !hasCompleted) {
       setIsRunning(false);
       setHasCompleted(true);
-      if (hasCompleted) {
-        alert("⏰ 타이머가 완료되었습니다! 수고하셨어요 🙌");
-        router.push("/done");
-      }
+      addToTotalMinutes(DEFAULT_MINUTE);
+      router.push("/done");
     }
 
     return () => {
@@ -31,11 +31,20 @@ export default function DrawPage() {
         clearTimeout(timerRef.current);
       }
     };
-  }, [timeLeft, isRunning]);
+  }, [timeLeft, isRunning, hasCompleted, router]);
 
   const toggleTimer = () => { setIsRunning(!isRunning); }
-  const resetTimer = () => { setIsRunning(false); setTimeLeft(DEFAULT_TIME); }
-  const completeNow = () => { setIsRunning(false); setTimeLeft(0); }
+  const resetTimer = () => { setIsRunning(false); setTimeLeft(DEFAULT_SECOND); }
+  const completeNow = () => {
+    setIsRunning(false); 
+    addToTotalMinutes(Math.floor((DEFAULT_SECOND - timeLeft) / 60));
+    router.push("/done");
+  }
+  const addToTotalMinutes = (mins: number) => {
+    const prev = localStorage.getItem("totalMinutes");
+    const total = (prev ? parseInt(prev, 10) : 0) + mins;
+    localStorage.setItem("totalMinutes", total.toString());
+  }
 
   const formatTime = (sec: number) => {
     const m = Math.floor(sec / 60).toString().padStart(2, "0");
