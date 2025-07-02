@@ -1,9 +1,7 @@
-"use client"
+'use client'
 
-import { DoneMessage } from "@/components/done/DoneMessage";
+import { DoneMessage } from '@/components/done/DoneMessage'
 
 export default function DonePage() {
-  return (
-    <DoneMessage />
-  );
+  return <DoneMessage />
 }

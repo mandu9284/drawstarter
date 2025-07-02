@@ -23,13 +23,13 @@
 
 ## 🔧 기술 스택
 
-| 기술 | 설명 |
-|------|------|
-| [Next.js (App Router)](https://nextjs.org/) | 프레임워크 |
-| [TypeScript](https://www.typescriptlang.org/) | 타입 안정성 |
-| [Tailwind CSS](https://tailwindcss.com/) | 빠른 UI 구현 |
-| localStorage | 사용자 누적 시간 저장 |
-| (옵션) GPT API | 고급 주제 자동 생성 (계획 중) |
+| 기술                                          | 설명                          |
+| --------------------------------------------- | ----------------------------- |
+| [Next.js (App Router)](https://nextjs.org/)   | 프레임워크                    |
+| [TypeScript](https://www.typescriptlang.org/) | 타입 안정성                   |
+| [Tailwind CSS](https://tailwindcss.com/)      | 빠른 UI 구현                  |
+| localStorage                                  | 사용자 누적 시간 저장         |
+| (옵션) GPT API                                | 고급 주제 자동 생성 (계획 중) |
 
 ---
 
@@ -58,3 +58,4 @@ npm run dev
 
 # Vercel 등에 배포 준비
 npm run build
+```

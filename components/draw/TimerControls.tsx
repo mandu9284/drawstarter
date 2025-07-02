@@ -1,40 +1,36 @@
-"use client"
+'use client'
 
-import { Button } from "../common/Button";
-import { ButtonGroup } from "../common/ButtonGroup";
+import { Button } from '../common/Button'
+import { ButtonGroup } from '../common/ButtonGroup'
 
 export function TimerControls({
   isRunning,
   onToggle,
   onReset,
-  onComplete
+  onComplete,
 }: {
-  isRunning: boolean;
-  onToggle: () => void;
-  onReset: () => void;
-  onComplete: () => void;
+  isRunning: boolean
+  onToggle: () => void
+  onReset: () => void
+  onComplete: () => void
 }) {
   return (
-    <ButtonGroup className="justify-center">
+    <ButtonGroup className='justify-center'>
       <Button
-        variant={isRunning ? "pause" : "primary"}
-        onClick={onToggle}
-      >
-        {isRunning ? "PAUSE" : "START"}
+        variant={isRunning ? 'pause' : 'primary'}
+        onClick={onToggle}>
+        {isRunning ? 'PAUSE' : 'START'}
       </Button>
       <Button
-        variant="secondary"
-        onClick={onReset}
-      >
+        variant='secondary'
+        onClick={onReset}>
         RESTART
       </Button>
       <Button
-        variant="success"
-        onClick={onComplete}
-      >
+        variant='success'
+        onClick={onComplete}>
         COMPLETE
       </Button>
     </ButtonGroup>
   )
 }
-  
