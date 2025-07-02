@@ -22,7 +22,7 @@ export default function DrawPage() {
       setHasCompleted(true);
       if (hasCompleted) {
         alert("⏰ 타이머가 완료되었습니다! 수고하셨어요 🙌");
-        router.push("/");
+        router.push("/done");
       }
     }
 
