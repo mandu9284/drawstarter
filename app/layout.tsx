@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://drawstarter.com'),
+  metadataBase: new URL('https://drawstarter.vercel.app/'),
   alternates: {
     canonical: '/',
     languages: {
