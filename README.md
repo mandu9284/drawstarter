@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 DrawStarter
 
-## Getting Started
+> **DrawStarter**는 디지털 아티스트와 일러스트레이터들이 매일 창작을 시작할 수 있도록 돕는 웹앱입니다.  
+> "오늘 그릴 게 없을 때", "그릴 시간 확보가 어려울 때" — DrawStarter가 여러분의 시작을 함께합니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ 주요 기능 (MVP 기준)
+
+- 📝 **랜덤 주제 생성기**  
+  매일 새로운 드로잉 주제를 제공 (명사 + 스타일 + 분위기 조합)
+
+- ⏱️ **Pomodoro 기반 타이머**  
+  25분 집중 타이머로 창작 시간 확보
+
+- 💾 **로컬 저장 기반 누적 시간 기록**  
+  내가 얼마나 그리고 있는지 시각화
+
+- 📱 **모바일 최적화**  
+  반응형 디자인으로 언제 어디서든 사용 가능
+
+---
+
+## 🔧 기술 스택
+
+| 기술 | 설명 |
+|------|------|
+| [Next.js (App Router)](https://nextjs.org/) | 프레임워크 |
+| [TypeScript](https://www.typescriptlang.org/) | 타입 안정성 |
+| [Tailwind CSS](https://tailwindcss.com/) | 빠른 UI 구현 |
+| localStorage | 사용자 누적 시간 저장 |
+| (옵션) GPT API | 고급 주제 자동 생성 (계획 중) |
+
+---
+
+## 🗂️ 프로젝트 구조
+
+```
+drawstarter/
+├── app/              # 페이지 구성 (홈, 타이머, 완료 등)
+├── components/       # UI 컴포넌트
+├── lib/              # 로직 유틸 (주제 생성, 시간 계산 등)
+├── styles/           # 글로벌 CSS
+├── types/            # 타입 정의
+└── public/           # 정적 파일 (아이콘, OG 이미지 등)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 실행 방법
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 설치
+npm install
 
-## Learn More
+# 로컬 개발 서버 실행
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Vercel 등에 배포 준비
+npm run build
