@@ -23,6 +23,7 @@ export default function DrawPage() {
       setIsRunning(false);
       setHasCompleted(true);
       addToTotalMinutes(DEFAULT_MINUTE);
+      addToTodayMinutes(DEFAULT_MINUTE);
       router.push("/done");
     }
 
@@ -37,13 +38,22 @@ export default function DrawPage() {
   const resetTimer = () => { setIsRunning(false); setTimeLeft(DEFAULT_SECOND); }
   const completeNow = () => {
     setIsRunning(false); 
-    addToTotalMinutes(Math.floor((DEFAULT_SECOND - timeLeft) / 60));
+    const spentMinutes = Math.floor((DEFAULT_SECOND - timeLeft) / 60);
+    addToTotalMinutes(spentMinutes);
+    addToTodayMinutes(spentMinutes);
     router.push("/done");
   }
   const addToTotalMinutes = (mins: number) => {
     const prev = localStorage.getItem("totalMinutes");
     const total = (prev ? parseInt(prev, 10) : 0) + mins;
     localStorage.setItem("totalMinutes", total.toString());
+  }
+
+  const addToTodayMinutes = (mins: number) => {
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    const prev = localStorage.getItem(`day-${today}`);
+    const total = (prev ? parseInt(prev, 10) : 0) + mins;
+    localStorage.setItem(`day-${today}`, total.toString());
   }
 
   const formatTime = (sec: number) => {
@@ -60,7 +70,7 @@ export default function DrawPage() {
         <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={toggleTimer}>
           {isRunning ? "PAUSE" : "START"}
         </button>
-        <button className="bg-gray-200 px-4 py-2 rounded" onClick={resetTimer}>RESTART</button>
+        <button className="bg-gray-200 px-4 py-2 rounded dark:bg-gray-700" onClick={resetTimer}>RESTART</button>
         <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={completeNow}>COMPLETE</button>
       </div>
     </div>
