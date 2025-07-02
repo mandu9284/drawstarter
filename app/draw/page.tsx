@@ -63,15 +63,28 @@ export default function DrawPage() {
   }
 
   return (
-    <div className="space-y-6 text-center">
-      <h2 className="text-2xl font-semibold">⏱️ 타이머</h2>
-      <p className="text-6xl font-mono">{formatTime(timeLeft)}</p>
-      <div className="flex justify-center gap-4">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={toggleTimer}>
+    <div className="space-y-6 text-center px-4 sm:px-6 md:px-8">
+      <h2 className="text-2xl sm:text-3xl font-semibold">⏱️ 타이머</h2>
+      <p className="text-5xl sm:text-6xl font-mono">{formatTime(timeLeft)}</p>
+      <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded text-sm sm:text-base"
+          onClick={toggleTimer}
+        >
           {isRunning ? "PAUSE" : "START"}
         </button>
-        <button className="bg-gray-200 px-4 py-2 rounded dark:bg-gray-700" onClick={resetTimer}>RESTART</button>
-        <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={completeNow}>COMPLETE</button>
+        <button
+          className="bg-gray-300 px-4 py-2 rounded text-sm sm:text-base dark:bg-gray-700"
+          onClick={resetTimer}
+        >
+          RESTART
+        </button>
+        <button
+          className="bg-green-500 text-white px-4 py-2 rounded text-sm sm:text-base"
+          onClick={completeNow}
+        >
+          COMPLETE
+        </button>
       </div>
     </div>
   )
