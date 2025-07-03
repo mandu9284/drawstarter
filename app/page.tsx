@@ -19,6 +19,7 @@ export default function Home() {
   const [password, setPassword] = useState('')
   const [isSignUp, setIsSignUp] = useState(false)
   const [authMessage, setAuthMessage] = useState('')
+  const [termsAccepted, setTermsAccepted] = useState(false)
 
   const fetchTimeData = useCallback(async () => {
     if (!user) return
@@ -63,6 +64,11 @@ export default function Home() {
   }, [user, fetchTimeData])
 
   const handleSignUp = async () => {
+    if (!termsAccepted) {
+      setAuthMessage('이용 약관에 동의해야 회원가입을 할 수 있습니다.')
+      return
+    }
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -115,6 +121,29 @@ export default function Home() {
           placeholder='비밀번호'
           className='w-full px-4 py-2 border rounded-md'
         />
+        {isSignUp && (
+          <div className='flex items-center justify-center'>
+            <input
+              type='checkbox'
+              id='terms'
+              checked={termsAccepted}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
+              className='mr-2'
+            />
+            <label
+              htmlFor='terms'
+              className='text-sm'>
+              <a
+                href='/terms'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-500 hover:underline'>
+                이용 약관
+              </a>
+              에 동의합니다.
+            </label>
+          </div>
+        )}
         <Button onClick={isSignUp ? handleSignUp : handleLogin}>
           {isSignUp ? '회원가입' : '로그인'}
         </Button>
