@@ -16,16 +16,16 @@
 
 ## 🔧 기술 스택
 
-| 구분       | 기술                                                                  |
-| ---------- | --------------------------------------------------------------------- |
-| **프레임워크** | [Next.js (App Router)](https://nextjs.org/)                           |
-| **언어**     | [TypeScript](https://www.typescriptlang.org/)                         |
-| **스타일링**   | [Tailwind CSS](https://tailwindcss.com/)                              |
-| **백엔드 & DB** | [Supabase](https://supabase.io/) (인증, 데이터베이스, 스토리지)       |
-| **상태 관리**  | [React Context API](https://react.dev/learn/passing-data-deeply-with-context) |
-| **코드 품질**  | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)        |
-| **CI/CD**    | [GitHub Actions](https://github.com/features/actions)                 |
-| **배포**     | [Vercel](https://vercel.com/)                                         |
+| 구분            | 기술                                                                          |
+| --------------- | ----------------------------------------------------------------------------- |
+| **프레임워크**  | [Next.js (App Router)](https://nextjs.org/)                                   |
+| **언어**        | [TypeScript](https://www.typescriptlang.org/)                                 |
+| **스타일링**    | [Tailwind CSS](https://tailwindcss.com/)                                      |
+| **백엔드 & DB** | [Supabase](https://supabase.io/) (인증, 데이터베이스, 스토리지)               |
+| **상태 관리**   | [React Context API](https://react.dev/learn/passing-data-deeply-with-context) |
+| **코드 품질**   | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)               |
+| **CI/CD**       | [GitHub Actions](https://github.com/features/actions)                         |
+| **배포**        | [Vercel](https://vercel.com/)                                                 |
 
 ---
 
