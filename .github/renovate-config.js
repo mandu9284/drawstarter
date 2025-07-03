@@ -5,7 +5,6 @@ module.exports = {
   onboarding: false,
   platform: 'github',
   forkProcessing: 'enabled',
-  dryRun: 'full',
   repositories: ['mandu9284/drawstarter'],
   labels: ['renovatebot'],
   assigneesFromCodeOwners: true,
