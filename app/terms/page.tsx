@@ -408,7 +408,7 @@ export default function TermsPage() {
 
         <p className='mt-8 text-sm text-gray-500'>부칙</p>
         <p className='text-sm text-gray-500'>
-          본 약관은 2024년 7월 3일부터 적용됩니다.
+          본 약관은 2025년 7월 2일부터 적용됩니다.
         </p>
       </div>
       <div className='mt-8 text-center'>
