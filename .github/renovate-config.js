@@ -7,19 +7,25 @@ module.exports = {
   forkProcessing: 'enabled',
   dryRun: 'full',
   repositories: ['mandu9284/drawstarter'],
+  labels: ['renovatebot'],
+  assigneesFromCodeOwners: true,
+  dependencyDashboard: true,
   packageRules: [
     {
-      description: 'lockFileMaintenance',
-      matchUpdateTypes: [
-        'pin',
-        'digest',
-        'patch',
-        'minor',
-        'major',
-        'lockFileMaintenance',
-      ],
-      dependencyDashboardApproval: false,
-      minimumReleaseAge: '0 days',
+      matchUpdateTypes: ['major'],
+      labels: ['renovate', 'dependencies', 'major-update'],
+      automerge: false,
+    },
+    {
+      matchUpdateTypes: ['minor', 'patch', 'pin', 'digest'],
+      labels: ['renovate', 'dependencies', 'safe-update'],
+      automerge: true,
+    },
+    {
+      matchUpdateTypes: ['minor', 'patch', 'pin', 'digest'],
+      matchPackagePatterns: ['eslint'],
+      groupName: 'eslint',
+      automerge: true,
     },
   ],
 }
