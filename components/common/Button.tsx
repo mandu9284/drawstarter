@@ -2,7 +2,14 @@ import { ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'pause'
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'pause'
+    | 'tertiary'
   size?: 'sm' | 'base'
 }
 
@@ -25,6 +32,7 @@ export function Button({
     danger: 'bg-red-500 text-white',
     warning: 'bg-yellow-500 text-black',
     pause: 'bg-gray-500 text-white',
+    tertiary: 'bg-transparent text-gray-500 hover:text-gray-700',
   }
 
   return (
