@@ -1,26 +1,32 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useUser } from '@/hooks/useUser'
+import { supabase } from '@/lib/supabaseClient'
 
 const DEFAULT_MINUTE = 30
 const DEFAULT_SECOND = DEFAULT_MINUTE * 60
 
 export function useTimer() {
+  const { user } = useUser()
   const [timeLeft, setTimeLeft] = useState(DEFAULT_SECOND)
   const [isRunning, setIsRunning] = useState(false)
   const [hasCompleted, setHasCompleted] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  const addToTotalMinutes = useCallback((mins: number) => {
-    const prev = localStorage.getItem('totalMinutes')
-    const total = (prev ? parseInt(prev, 10) : 0) + mins
-    localStorage.setItem('totalMinutes', total.toString())
-  }, [])
+  const saveData = useCallback(
+    async (minutes: number) => {
+      if (!user) return
 
-  const addToTodayMinutes = useCallback((mins: number) => {
-    const today = new Date().toISOString().slice(0, 10)
-    const prev = localStorage.getItem(`day-${today}`)
-    const total = (prev ? parseInt(prev, 10) : 0) + mins
-    localStorage.setItem(`day-${today}`, total.toString())
-  }, [])
+      const { error } = await supabase.from('time_logs').insert({
+        user_id: user.id,
+        duration_minutes: minutes,
+      })
+
+      if (error) {
+        console.error('Error saving time log:', error)
+      }
+    },
+    [user],
+  )
 
   const toggleTimer = useCallback(() => {
     setIsRunning((prev) => !prev)
@@ -36,11 +42,10 @@ export function useTimer() {
     setIsRunning(false)
     const spentMinutes = Math.floor((DEFAULT_SECOND - timeLeft) / 60)
     if (spentMinutes > 0) {
-      addToTotalMinutes(spentMinutes)
-      addToTodayMinutes(spentMinutes)
+      saveData(spentMinutes)
     }
     setHasCompleted(true)
-  }, [timeLeft, addToTotalMinutes, addToTodayMinutes])
+  }, [timeLeft, saveData])
 
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
@@ -65,7 +70,5 @@ export function useTimer() {
     toggleTimer,
     resetTimer,
     completeNow,
-    addToTotalMinutes,
-    addToTodayMinutes,
   }
 }
