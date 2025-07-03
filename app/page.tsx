@@ -130,8 +130,17 @@ export default function Home() {
               onChange={(e) => setTermsAccepted(e.target.checked)}
               className='mr-2'
             />
-            <label htmlFor='terms' className='text-sm'>
-              <a href='/terms' target='_blank' rel='noopener noreferrer' className='text-blue-500 hover:underline'>이용 약관</a>에 동의합니다.
+            <label
+              htmlFor='terms'
+              className='text-sm'>
+              <a
+                href='/terms'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-500 hover:underline'>
+                이용 약관
+              </a>
+              에 동의합니다.
             </label>
           </div>
         )}
