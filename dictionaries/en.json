@@ -1,0 +1,53 @@
+{
+  "auth": {
+    "agree_terms_signup_required": "You must agree to the terms and conditions to sign up.",
+    "signup_complete_check_email": "Sign up complete! Please check your email to activate your account.",
+    "signup": "Sign Up",
+    "login": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "terms_and_conditions": "Terms and Conditions",
+    "i_agree": "I agree.",
+    "already_have_account": "Already have an account?",
+    "dont_have_account": "Don't have an account?",
+    "logout": "Log Out"
+  },
+  "home": {
+    "total_accumulated_time": "Total Accumulated Time",
+    "today_work_time": "Today's Work Time",
+    "view_other_topics": "View Other Topics",
+    "start_drawing": "Start Drawing",
+    "minutes": "Minutes",
+    "today_subject": "Today's Subject"
+  },
+  "draw": {
+    "start": "Start",
+    "reset": "Reset",
+    "pause": "Pause",
+    "complete": "Complete",
+    "timer": "Timer"
+  },
+  "done": {
+    "title": "🎉 You did it!",
+    "description": "You completed your drawing time today!",
+    "thanks": "Thank you for using DrawStarter."
+  },
+  "metadata": {
+    "description": "Creative topic suggestion & timer tool for illustrators",
+    "keywords": [
+      "illustration",
+      "illustrations",
+      "creation",
+      "drawing",
+      "creative topic",
+      "drawing time",
+      "timer",
+      "art",
+      "subject",
+      "creative",
+      "draw",
+      "drawings",
+      "illustrator"
+    ]
+  }
+}
