@@ -1,16 +1,18 @@
 'use client'
-
 import { Button } from '@/components/common/Button'
 import { ButtonGroup } from '@/components/common/ButtonGroup'
 import { PromptCard } from '@/components/home/PromptCard'
 import { RecordItem } from '@/components/home/RecordItem'
-import { getRandomPrompt } from '@/lib/prompt'
-import Link from 'next/link'
-import { useEffect, useState, useCallback } from 'react'
+import { useDictionary } from '@/hooks/useDictionary'
 import { useUser } from '@/hooks/useUser'
+import { getRandomPrompt } from '@/lib/prompt'
 import { supabase } from '@/lib/supabaseClient'
 
-export default function Home() {
+import Link from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
+
+export default function Page() {
+  const { dict, lang } = useDictionary()
   const { user, loading } = useUser()
   const [prompt, setPrompt] = useState(getRandomPrompt())
   const [totalMinutes, setTotalMinutes] = useState(0)
@@ -65,7 +67,7 @@ export default function Home() {
 
   const handleSignUp = async () => {
     if (!termsAccepted) {
-      setAuthMessage('이용 약관에 동의해야 회원가입을 할 수 있습니다.')
+      setAuthMessage(dict.auth.agree_terms_signup_required)
       return
     }
 
@@ -76,7 +78,7 @@ export default function Home() {
     if (error) {
       setAuthMessage(error.message)
     } else {
-      setAuthMessage('회원가입 완료! 이메일을 확인하여 계정을 활성화해주세요.')
+      setAuthMessage(dict.auth.signup_complete_check_email)
     }
   }
 
@@ -105,20 +107,20 @@ export default function Home() {
     return (
       <div className='space-y-4 text-center'>
         <h2 className='text-2xl font-bold'>
-          {isSignUp ? '회원가입' : '로그인'}
+          {isSignUp ? dict.auth.signup : dict.auth.login}
         </h2>
         <input
           type='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder='이메일'
+          placeholder={dict.auth.email}
           className='w-full px-4 py-2 border rounded-md'
         />
         <input
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder='비밀번호'
+          placeholder={dict.auth.password}
           className='w-full px-4 py-2 border rounded-md'
         />
         {isSignUp && (
@@ -134,25 +136,29 @@ export default function Home() {
               htmlFor='terms'
               className='text-sm'>
               <a
-                href='/terms'
+                href={`/${lang}/terms`}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-blue-500 hover:underline'>
-                이용 약관
+                {dict.auth.terms_and_conditions}
               </a>
-              에 동의합니다.
+              <span className={lang === 'en' ? 'ml-2' : ''}>
+                {dict.auth.i_agree}
+              </span>
             </label>
           </div>
         )}
         <Button onClick={isSignUp ? handleSignUp : handleLogin}>
-          {isSignUp ? '회원가입' : '로그인'}
+          {isSignUp ? dict.auth.signup : dict.auth.login}
         </Button>
         <p className='text-sm'>
-          {isSignUp ? '이미 계정이 있으신가요?' : '계정이 없으신가요?'}
+          {isSignUp
+            ? dict.auth.already_have_account
+            : dict.auth.dont_have_account}
           <button
             onClick={() => setIsSignUp(!isSignUp)}
             className='ml-1 text-blue-500 hover:underline'>
-            {isSignUp ? '로그인' : '회원가입'}
+            {isSignUp ? dict.auth.login : dict.auth.signup}
           </button>
         </p>
         {authMessage && <p className='text-red-500'>{authMessage}</p>}
@@ -162,33 +168,40 @@ export default function Home() {
 
   return (
     <div className='space-y-6 px-4 sm:px-6 md:px-8'>
-      <PromptCard prompt={prompt} />
-      <RecordItem
-        label={`${user.email}님의 총 누적 시간`}
-        value={totalMinutes}
+      <PromptCard
+        prompt={prompt}
+        todaySubject={dict.home.today_subject}
       />
       <RecordItem
-        label={`${user.email}님의 오늘의 작업 시간`}
-        value={todayMinutes}
+        label={`${dict.auth.email}`}
+        value={`${user.email}`}
+      />
+      <RecordItem
+        label={`${dict.home.total_accumulated_time}`}
+        value={`${totalMinutes} ${dict.home.minutes}`}
+      />
+      <RecordItem
+        label={`${dict.home.today_work_time}`}
+        value={`${todayMinutes} ${dict.home.minutes}`}
       />
       <ButtonGroup>
         <Button
           variant='secondary'
           onClick={() => setPrompt(getRandomPrompt())}>
-          다른 주제 보기
+          {dict.home.view_other_topics}
         </Button>
-        <Link href='/draw'>
+        <Link href={`/${lang}/draw`}>
           <Button
             variant='primary'
             className='w-full'>
-            그리기 시작
+            {dict.home.start_drawing}
           </Button>
         </Link>
       </ButtonGroup>
       <Button
         variant='tertiary'
         onClick={handleLogout}>
-        로그아웃
+        {dict.auth.logout}
       </Button>
     </div>
   )

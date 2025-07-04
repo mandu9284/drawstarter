@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function TermsPage() {
+export default function KrTerms({ lang }: { lang: string }) {
   return (
     <div className='container mx-auto p-4'>
       <h1 className='text-3xl font-bold mb-4'>이용 약관</h1>
@@ -413,9 +413,9 @@ export default function TermsPage() {
       </div>
       <div className='mt-8 text-center'>
         <Link
-          href='/'
+          href={`/${lang}/`}
           className='text-blue-500 hover:underline'>
-          홈으로 돌아가기
+          Home
         </Link>
       </div>
     </div>

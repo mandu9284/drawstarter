@@ -1,0 +1,50 @@
+{
+  "auth": {
+    "agree_terms_signup_required": "サインアップするには、利用規約に同意する必要があります。",
+    "signup_complete_check_email": "サインアップ完了！アカウントを有効にするためにメールを確認してください。",
+    "signup": "サインアップ",
+    "login": "ログイン",
+    "email": "メール",
+    "password": "パスワード",
+    "terms_and_conditions": "利用規約",
+    "i_agree": "に同意します。",
+    "already_have_account": "すでにアカウントをお持ちですか？",
+    "dont_have_account": "アカウントをお持ちではありませんか？",
+    "logout": "ログアウト"
+  },
+  "home": {
+    "total_accumulated_time": "総累積時間",
+    "today_work_time": "今日の作業時間",
+    "view_other_topics": "他のトピックを見る",
+    "start_drawing": "描画を開始",
+    "minutes": "分",
+    "today_subject": "今日のテーマ"
+  },
+  "draw": {
+    "start": "開始",
+    "reset": "リセット",
+    "pause": "一時停止",
+    "complete": "完了",
+    "timer": "タイマー"
+  },
+  "done": {
+    "title": "🎉 おめでとうございます！",
+    "description": "今日の絵を描き上げて素晴らしい成果を達成しました。",
+    "thanks": "DrawStarterと一緒に描くのを楽しんでください。"
+  },
+  "metadata": {
+    "description": "イラストレーターのための創作テーマ提案＆タイマーツール",
+    "keywords": [
+      "イラスト",
+      "創作",
+      "タイマー",
+      "絵",
+      "イラストレーター",
+      "創作テーマ",
+      "お絵描き時間",
+      "イラストレーション",
+      "アート",
+      "お絵描き"
+    ]
+  }
+}
