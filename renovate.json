@@ -4,9 +4,7 @@
   "labels": ["renovatebot"],
   "assigneesFromCodeOwners": true,
   "dependencyDashboard": true,
-  "schedule": [
-    "weekdays"
-  ],
+  "schedule": ["weekdays"],
   "timezone": "Asia/Tokyo",
   "packageRules": [
     {
@@ -18,9 +16,7 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "labels": ["renovate", "dependencies", "safe-update"],
       "automerge": true,
-      "automergeSchedule": [
-        "automergeEarlyMondays"
-      ]
+      "automergeSchedule": ["automergeEarlyMondays"]
     }
   ]
 }
