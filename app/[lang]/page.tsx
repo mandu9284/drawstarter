@@ -105,10 +105,6 @@ export default function Page() {
         todaySubject={dict.home.today_subject}
       />
       <RecordItem
-        label={`${dict.auth.email}`}
-        value={`${user.email}`}
-      />
-      <RecordItem
         label={`${dict.home.total_accumulated_time}`}
         value={`${totalMinutes} ${dict.home.minutes}`}
       />

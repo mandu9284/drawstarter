@@ -1,4 +1,4 @@
-interface Dictionary {
+export interface Dictionary {
   auth: {
     agree_terms_signup_required: string
     signup_complete_check_email: string
@@ -46,4 +46,23 @@ interface Dictionary {
     feature_3_title: string
     feature_3_description: string
   }
+  header: {
+    languages: string
+    language_label: string
+    settings: string
+    home: string
+    terms: string
+  }
 }
+
+export interface Language {
+  code: string
+  name: string
+  flag: string
+}
+
+export const languages: Language[] = [
+  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+]

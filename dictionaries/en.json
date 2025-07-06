@@ -42,6 +42,13 @@
     "description": "You completed your drawing time today!",
     "thanks": "Thank you for using DrawStarter."
   },
+  "header": {
+    "languages": "Languages",
+    "language_label": "Language",
+    "settings": "Settings",
+    "home": "Home",
+    "terms": "Terms"
+  },
   "metadata": {
     "description": "Creative topic suggestion & timer tool for illustrators",
     "keywords": [

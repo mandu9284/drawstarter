@@ -42,6 +42,13 @@
     "description": "오늘의 그림 시간을 완수했어요.",
     "thanks": "DrawStarter와 함께 해주셔서 감사합니다."
   },
+  "header": {
+    "languages": "언어",
+    "language_label": "사용할 언어",
+    "settings": "설정",
+    "home": "홈",
+    "terms": "이용약관"
+  },
   "metadata": {
     "description": "일러스트레이터를 위한 창작 주제 제안 & 타이머 도구",
     "keywords": [
