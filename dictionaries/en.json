@@ -12,6 +12,16 @@
     "dont_have_account": "Don't have an account?",
     "logout": "Log Out"
   },
+  "landing": {
+    "title": "DrawStarter: The Easiest Way to Start Your Creation",
+    "subtitle": "When you're stuck on what to draw today, or when you want to consistently secure your work time, DrawStarter is here to accompany you on your creative journey.",
+    "feature_1_title": "✍️ Random Topic Generator",
+    "feature_1_description": "When you're out of inspiration, you can get a variety of drawing topics instantly with the touch of a button.",
+    "feature_2_title": "⏱️ Focus Timer",
+    "feature_2_description": "A timer that helps you focus solely on your work for a set amount of time.",
+    "feature_3_title": "📈 Automatic Work Time Logging",
+    "feature_3_description": "The time you spend using the timer is automatically logged, allowing you to see your work patterns and cumulative time at a glance."
+  },
   "home": {
     "total_accumulated_time": "Total Accumulated Time",
     "today_work_time": "Today's Work Time",

@@ -67,7 +67,7 @@ export default async function RootLayout({
           <DictionaryProvider
             dict={dict}
             lang={lang}>
-            <Header />
+            <Header dict={dict} />
             <main className='max-w-md md:max-w-xl lg:max-w-2xl mx-auto p-4'>
               {children}
             </main>

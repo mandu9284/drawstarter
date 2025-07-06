@@ -12,6 +12,16 @@
     "dont_have_account": "アカウントをお持ちではありませんか？",
     "logout": "ログアウト"
   },
+  "landing": {
+    "title": "DrawStarter：あなたの創作を始める最も簡単な方法",
+    "subtitle": "今日何を描くか悩んでいるとき、作業時間を着実に確保したいとき、DrawStarterがあなたの創作の旅を共にします。",
+    "feature_1_title": "✍️ ランダムなテーマジェネレーター",
+    "feature_1_description": "インスピレーションが湧かないときは、ボタン一つで様々な描画テーマを即座に提案してもらえます。",
+    "feature_2_title": "⏱️ 集中タイマー",
+    "feature_2_description": "設定された時間、作業に完全に集中できるようにサポートするタイマーです。",
+    "feature_3_title": "📈 作業時間の自動記録",
+    "feature_3_description": "タイマーを使用した時間が自動的に記録され、自分の作業パターンと累積時間を一目で把握できます。"
+  },
   "home": {
     "total_accumulated_time": "総累積時間",
     "today_work_time": "今日の作業時間",

@@ -36,4 +36,14 @@ interface Dictionary {
     description: string
     keywords: string[]
   }
+  landing: {
+    title: string
+    subtitle: string
+    feature_1_title: string
+    feature_1_description: string
+    feature_2_title: string
+    feature_2_description: string
+    feature_3_title: string
+    feature_3_description: string
+  }
 }

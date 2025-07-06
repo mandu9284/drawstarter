@@ -17,11 +17,6 @@ export default function Page() {
   const [prompt, setPrompt] = useState(getRandomPrompt())
   const [totalMinutes, setTotalMinutes] = useState(0)
   const [todayMinutes, setTodayMinutes] = useState(0)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isSignUp, setIsSignUp] = useState(false)
-  const [authMessage, setAuthMessage] = useState('')
-  const [termsAccepted, setTermsAccepted] = useState(false)
 
   const fetchTimeData = useCallback(async () => {
     if (!user) return
@@ -65,103 +60,40 @@ export default function Page() {
     }
   }, [user, fetchTimeData])
 
-  const handleSignUp = async () => {
-    if (!termsAccepted) {
-      setAuthMessage(dict.auth.agree_terms_signup_required)
-      return
-    }
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-    })
-    if (error) {
-      setAuthMessage(error.message)
-    } else {
-      setAuthMessage(dict.auth.signup_complete_check_email)
-    }
-  }
-
-  const handleLogin = async () => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
-    if (error) {
-      setAuthMessage(error.message)
-    }
-  }
-
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut()
-    if (error) {
-      console.error('Error logging out:', error)
-    }
-  }
-
   if (loading) {
     return <div>Loading...</div>
   }
 
   if (!user) {
     return (
-      <div className='space-y-4 text-center'>
-        <h2 className='text-2xl font-bold'>
-          {isSignUp ? dict.auth.signup : dict.auth.login}
-        </h2>
-        <input
-          type='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={dict.auth.email}
-          className='w-full px-4 py-2 border rounded-md'
-        />
-        <input
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder={dict.auth.password}
-          className='w-full px-4 py-2 border rounded-md'
-        />
-        {isSignUp && (
-          <div className='flex items-center justify-center'>
-            <input
-              type='checkbox'
-              id='terms'
-              checked={termsAccepted}
-              onChange={(e) => setTermsAccepted(e.target.checked)}
-              className='mr-2'
-            />
-            <label
-              htmlFor='terms'
-              className='text-sm'>
-              <a
-                href={`/${lang}/terms`}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-blue-500 hover:underline'>
-                {dict.auth.terms_and_conditions}
-              </a>
-              <span className={lang === 'en' ? 'ml-2' : ''}>
-                {dict.auth.i_agree}
-              </span>
-            </label>
+      <div className='flex flex-col items-center justify-center min-h-screen py-2'>
+        <div className='w-full max-w-4xl p-8 space-y-4'>
+          <div className='text-center'>
+            <h1 className='text-4xl font-bold'>{dict.landing.title}</h1>
+            <p className='mt-4 text-lg'>{dict.landing.subtitle}</p>
           </div>
-        )}
-        <Button onClick={isSignUp ? handleSignUp : handleLogin}>
-          {isSignUp ? dict.auth.signup : dict.auth.login}
-        </Button>
-        <p className='text-sm'>
-          {isSignUp
-            ? dict.auth.already_have_account
-            : dict.auth.dont_have_account}
-          <button
-            onClick={() => setIsSignUp(!isSignUp)}
-            className='ml-1 text-blue-500 hover:underline'>
-            {isSignUp ? dict.auth.login : dict.auth.signup}
-          </button>
-        </p>
-        {authMessage && <p className='text-red-500'>{authMessage}</p>}
+
+          <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+            <div className='p-6 border rounded-lg'>
+              <h3 className='text-2xl font-bold'>
+                {dict.landing.feature_1_title}
+              </h3>
+              <p className='mt-2'>{dict.landing.feature_1_description}</p>
+            </div>
+            <div className='p-6 border rounded-lg'>
+              <h3 className='text-2xl font-bold'>
+                {dict.landing.feature_2_title}
+              </h3>
+              <p className='mt-2'>{dict.landing.feature_2_description}</p>
+            </div>
+            <div className='p-6 border rounded-lg'>
+              <h3 className='text-2xl font-bold'>
+                {dict.landing.feature_3_title}
+              </h3>
+              <p className='mt-2'>{dict.landing.feature_3_description}</p>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -198,11 +130,6 @@ export default function Page() {
           </Button>
         </Link>
       </ButtonGroup>
-      <Button
-        variant='tertiary'
-        onClick={handleLogout}>
-        {dict.auth.logout}
-      </Button>
     </div>
   )
 }
