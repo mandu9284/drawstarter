@@ -4,7 +4,7 @@
   "labels": ["renovatebot"],
   "assigneesFromCodeOwners": true,
   "dependencyDashboard": true,
-  "schedule": ["weekdays"],
+  "schedule": ["* * * * 1-5"],
   "timezone": "Asia/Tokyo",
   "packageRules": [
     {
