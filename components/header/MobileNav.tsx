@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { Button } from "../common/Button";
-import { FaBars } from "react-icons/fa";
-import { User } from "@supabase/supabase-js";
-import { Dictionary } from "@/types/type";
+import Link from 'next/link'
+import { Button } from '../common/Button'
+import { FaBars } from 'react-icons/fa'
+import { User } from '@supabase/supabase-js'
+import { Dictionary } from '@/types/type'
 
 export default function MobileNav({
   user,
@@ -58,8 +58,7 @@ export default function MobileNav({
               <Button
                 variant='tertiary'
                 onClick={handleLogout}
-                size='sm'
-                >
+                size='sm'>
                 {dict.auth.logout}
               </Button>
             ) : (
@@ -68,8 +67,7 @@ export default function MobileNav({
                 onClick={() => setIsMobileMenuOpen(false)}>
                 <Button
                   variant='tertiary'
-                  size='sm'
-                  >
+                  size='sm'>
                   {dict.auth.login}
                 </Button>
               </Link>
@@ -80,8 +78,7 @@ export default function MobileNav({
               onClick={() => setIsMobileMenuOpen(false)}>
               <Button
                 variant='tertiary'
-                size='sm'
-                >
+                size='sm'>
                 {dict.header.terms}
               </Button>
             </Link>
