@@ -6,7 +6,7 @@ import { useDictionary } from '@/hooks/useDictionary'
 import { Button } from '@/components/common/Button'
 
 export default function ChangePasswordPage() {
-  const { dict, lang } = useDictionary()
+  const { dict } = useDictionary()
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')

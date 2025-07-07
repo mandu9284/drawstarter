@@ -6,7 +6,6 @@ import { languages } from '@/types/type'
 import Link from 'next/link'
 import { useUser } from '@/hooks/useUser'
 import { useTheme } from '@/hooks/useTheme'
-import { FaArrowRight } from 'react-icons/fa'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 
 export default function SettingsPage() {
