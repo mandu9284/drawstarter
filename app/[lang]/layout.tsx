@@ -6,6 +6,7 @@ import { UserProvider } from '@/hooks/useUser'
 import { getDictionary } from '@/lib/dictionaries'
 import { DictionaryProvider } from '@/hooks/useDictionary'
 import * as React from 'react'
+import { Dictionary } from '@/types/type'
 
 export async function generateMetadata({
   params,

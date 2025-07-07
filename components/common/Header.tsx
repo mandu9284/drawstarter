@@ -84,6 +84,8 @@ export function Header({ dict }: { dict: Dictionary }) {
         dict={dict}
         currentLocale={currentLocale}
         handleLogout={handleLogout}
+        languages={languages}
+        redirectedPathName={redirectedPathName}
       />
     </header>
   )

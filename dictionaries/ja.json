@@ -10,7 +10,17 @@
     "i_agree": "に同意します。",
     "already_have_account": "すでにアカウントをお持ちですか？",
     "dont_have_account": "アカウントをお持ちではありませんか？",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "forgot_password": "パスワードをお忘れですか？",
+    "send_reset_email": "リセットメールを送信",
+    "reset_password_success": "パスワードリセットメールが送信されました。受信トレイを確認してください！",
+    "reset_password_error": "パスワードリセットメールの送信中にエラーが発生しました",
+    "email_required_for_reset": "パスワードをリセットするにはメールアドレスを入力してください。",
+    "back_to_login": "ログインに戻る",
+    "set_new_password_title": "新しいパスワードを設定",
+    "set_new_password_button": "新しいパスワードを設定",
+    "not_logged_in_error": "パスワードを更新するにはログインする必要があります。",
+    "password_reset_success": "パスワードが正常にリセットされました！"
   },
   "landing": {
     "title": "DrawStarter：あなたの創作を始める最も簡単な方法",
@@ -48,6 +58,20 @@
     "settings": "設定",
     "home": "ホーム",
     "terms": "利用規約"
+  },
+  "settings": {
+    "change_password_title": "パスワードの変更",
+    "new_password_label": "新しいパスワード",
+    "confirm_password_label": "新しいパスワード（確認用）",
+    "password_min_length_error": "パスワードは6文字以上である必要があります。",
+    "password_match_error": "パスワードが一致しません。",
+    "password_update_error": "パスワードの更新に失敗しました",
+    "password_update_success": "パスワードが正常に更新されました！",
+    "saving": "保存中...",
+    "change_password_button": "パスワードを変更",
+    "theme_label": "テーマ",
+    "light_mode": "ライトモード",
+    "dark_mode": "ダークモード"
   },
   "metadata": {
     "description": "イラストレーターのための創作テーマ提案＆タイマーツール",

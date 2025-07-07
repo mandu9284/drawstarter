@@ -30,7 +30,8 @@ export default function JpTerms({ lang }: { lang: string }) {
 
       <h2 className='text-xl font-semibold mb-2'>5. 利用規約の変更</h2>
       <p className='mb-4'>
-        DrawStarterは、いつでも本利用規約を変更することができます。変更は、本サービスに掲載された時点で直ちに有効となります。
+        DrawStarterは、いつでも本利用規約を変更することができます。変更は、本サービスに掲載された時点
+        で直ちに有効となります。
       </p>
 
       <h2 className='text-xl font-semibold mb-2'>6. お問い合わせ</h2>
