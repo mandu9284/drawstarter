@@ -7,6 +7,7 @@ import { getDictionary } from '@/lib/dictionaries'
 import { DictionaryProvider } from '@/hooks/useDictionary'
 import * as React from 'react'
 import { Dictionary } from '@/types/type'
+import { ThemeProvider } from '@/hooks/useTheme'
 
 export async function generateMetadata({
   params,
@@ -65,15 +66,17 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className='bg-gray-50 text-gray-800 font-sans'>
         <UserProvider>
-          <DictionaryProvider
-            dict={dict}
-            lang={lang}>
-            <Header dict={dict} />
-            <main className='max-w-md md:max-w-xl lg:max-w-2xl mx-auto p-4'>
-              {children}
-            </main>
-            <Analytics />
-          </DictionaryProvider>
+          <ThemeProvider>
+            <DictionaryProvider
+              dict={dict}
+              lang={lang}>
+              <Header dict={dict} />
+              <main className='max-w-md md:max-w-xl lg:max-w-2xl mx-auto p-4'>
+                {children}
+              </main>
+              <Analytics />
+            </DictionaryProvider>
+          </ThemeProvider>
         </UserProvider>
       </body>
     </html>

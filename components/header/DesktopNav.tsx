@@ -47,43 +47,51 @@ export default function DesktopNav({
             </Button>
 
             {isOpen && (
-              <div className='absolute right-0 mt-2 w-50 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50'>
-                <div className='flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'>
-                  <span className='mr-2'>{user.email}</span>
+              <div className='absolute right-0 mt-2 w-50 rounded-md shadow-lg py-1 z-50 dark:bg-gray-800 bg-white'>
+                <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
+                  <Button
+                    variant='tertiary'
+                    size='sm'>
+                    {user.email}
+                  </Button>
                 </div>
                 <div className='border-t border-gray-200 dark:border-gray-700'></div>
-                <div className='flex items-center text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'>
-                  <Link
-                    href={`/${currentLocale}/settings`}
-                    onClick={() => setIsOpen(false)}>
+                <Link
+                  href={`/${currentLocale}/settings`}
+                  onClick={() => setIsOpen(false)}>
+                  <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
                     <Button
                       variant='tertiary'
                       size='sm'>
                       {dict.header.settings}
                     </Button>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
                 <div className='border-t border-gray-200 dark:border-gray-700'></div>
-                <div className='flex items-center text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'>
-                  <Button
-                    variant='tertiary'
-                    size='sm'
-                    onClick={handleLogout}>
-                    {dict.auth.logout}
-                  </Button>
-                </div>
+                <Link
+                  href={`/${currentLocale}/settings`}
+                  onClick={() => setIsOpen(false)}>
+                  <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
+                    <Button
+                      variant='tertiary'
+                      size='sm'
+                      onClick={handleLogout}>
+                      {dict.auth.logout}
+                    </Button>
+                  </div>
+                </Link>
                 <div className='border-t border-gray-200 dark:border-gray-700'></div>
-                <div className='flex items-center text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'>
-                  <Link
-                    href={`/${currentLocale}/terms`}
-                    onClick={() => setIsOpen(false)}>
+                <Link
+                  href={`/${currentLocale}/terms`}
+                  onClick={() => setIsOpen(false)}>
+                  <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
                     <Button
                       variant='tertiary'
                       size='sm'>
                       {dict.header.terms}
                     </Button>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
             )}
           </div>

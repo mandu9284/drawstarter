@@ -5,18 +5,12 @@ import { useDictionary } from '@/hooks/useDictionary'
 import { languages } from '@/types/type'
 import Link from 'next/link'
 import { useUser } from '@/hooks/useUser'
-import { useState, useEffect } from 'react'
+import { useTheme } from '@/hooks/useTheme'
 
 export default function SettingsPage() {
   const { dict, lang } = useDictionary()
   const { user } = useUser()
-  const [theme, setTheme] = useState('light')
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light'
-    setTheme(savedTheme)
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-  }, [])
+  const { theme, setTheme } = useTheme()
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     redirect(`/${e.target.value}/settings`)

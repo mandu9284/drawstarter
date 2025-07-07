@@ -8,7 +8,7 @@ export function PromptCard({
   todaySubject: string
 }) {
   return (
-    <div className='border p-4 sm:p-6 rounded bg-white shadow dark:bg-gray-800'>
+    <div className='border p-4 sm:p-6 rounded shadow dark:bg-gray-800'>
       <p className='font-semibold text-base sm:text-lg dark:text-white '>
         {todaySubject}
       </p>

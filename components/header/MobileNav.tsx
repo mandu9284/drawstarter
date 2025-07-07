@@ -48,7 +48,12 @@ export default function MobileNav({
             {user && (
               <>
                 <div className='flex items-center justify-center'>
-                  <span>{user.email}</span>
+                  <Button
+                    variant='tertiary'
+                    size='sm'
+                    onClick={() => setIsMobileMenuOpen(false)}>
+                    {user.email}
+                  </Button>
                 </div>
                 <div className='border-t border-gray-200 dark:border-gray-700'></div>
                 <Link href={`/${currentLocale}/settings`}>
@@ -102,13 +107,17 @@ export default function MobileNav({
                         <Link
                           key={language.code}
                           href={redirectedPathName(language.code)}
-                          className='flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                          className='flex items-center justify-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
                           onClick={() => {
                             setIsLanguageOpen(false)
                             setIsMobileMenuOpen(false)
                           }}>
-                          <span className='mr-2'>{language.flag}</span>
-                          {language.name}
+                          <span>{language.flag}</span>
+                          <Button
+                            variant='tertiary'
+                            size='sm'>
+                            {language.name}
+                          </Button>
                         </Link>
                       ))}
                     </div>
