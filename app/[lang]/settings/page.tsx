@@ -1,4 +1,3 @@
-
 'use client'
 
 import { redirect } from 'next/navigation'
@@ -58,7 +57,9 @@ export default function SettingsPage() {
       </div>
 
       <div className='flex flex-col items-start py-2 mt-4 w-full'>
-        <h2 className='text-lg font-semibold mb-2'>{dict.settings.theme_label}</h2>
+        <h2 className='text-lg font-semibold mb-2'>
+          {dict.settings.theme_label}
+        </h2>
         <div className='flex gap-4'>
           <label className='inline-flex items-center'>
             <input

@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -18,7 +17,9 @@ export default function UpdatePasswordPage() {
     // Supabase will automatically handle session update from URL tokens
     // We just need to ensure the user is logged in to update password
     const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
       if (!user) {
         // If no user, redirect to login or show an error
         setMessage(dict.auth.not_logged_in_error)

@@ -1,11 +1,9 @@
-
 'use client'
 import { useState } from 'react'
 import { useDictionary } from '@/hooks/useDictionary'
 import { supabase } from '@/lib/supabaseClient'
 import { Button } from '@/components/common/Button'
 import { redirect } from 'next/navigation'
-import Link from 'next/link'
 
 export default function Login() {
   const { dict, lang } = useDictionary()
@@ -109,15 +107,28 @@ export default function Login() {
           </label>
         </div>
       )}
-      <Button onClick={showResetPassword ? handleResetPassword : (isSignUp ? handleSignUp : handleLogin)}>
-        {showResetPassword ? dict.auth.send_reset_email : (isSignUp ? dict.auth.signup : dict.auth.login)}
+      <Button
+        onClick={
+          showResetPassword
+            ? handleResetPassword
+            : isSignUp
+              ? handleSignUp
+              : handleLogin
+        }>
+        {showResetPassword
+          ? dict.auth.send_reset_email
+          : isSignUp
+            ? dict.auth.signup
+            : dict.auth.login}
       </Button>
       {!isSignUp && (
         <p className='text-sm'>
           <button
             onClick={() => setShowResetPassword(!showResetPassword)}
             className='text-blue-500 hover:underline'>
-            {showResetPassword ? dict.auth.back_to_login : dict.auth.forgot_password}
+            {showResetPassword
+              ? dict.auth.back_to_login
+              : dict.auth.forgot_password}
           </button>
         </p>
       )}

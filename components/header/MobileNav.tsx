@@ -67,7 +67,7 @@ export default function MobileNav({
                   {dict.auth.logout}
                 </Button>
               </>
-            )} 
+            )}
             {!user && (
               <>
                 <Link

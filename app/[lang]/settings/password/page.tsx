@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -83,7 +82,9 @@ export default function ChangePasswordPage() {
           type='submit'
           disabled={loading}
           className='mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50'>
-          {loading ? dict.settings.saving : dict.settings.change_password_button}
+          {loading
+            ? dict.settings.saving
+            : dict.settings.change_password_button}
         </button>
 
         {message && <p className='mt-4 text-sm text-red-500'>{message}</p>}
