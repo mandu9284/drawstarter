@@ -1,5 +1,6 @@
 'use client'
 
+import { Dictionary } from '@/types/type'
 import { createContext, ReactNode, useContext } from 'react'
 
 interface DictionaryContextType {

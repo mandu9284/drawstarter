@@ -11,6 +11,16 @@ export interface Dictionary {
     already_have_account: string
     dont_have_account: string
     logout: string
+    forgot_password: string
+    send_reset_email: string
+    reset_password_success: string
+    reset_password_error: string
+    email_required_for_reset: string
+    back_to_login: string
+    set_new_password_title: string
+    set_new_password_button: string
+    not_logged_in_error: string
+    password_reset_success: string
   }
   home: {
     total_accumulated_time: string
@@ -52,6 +62,20 @@ export interface Dictionary {
     settings: string
     home: string
     terms: string
+  }
+  settings: {
+    change_password_title: string
+    new_password_label: string
+    confirm_password_label: string
+    password_min_length_error: string
+    password_match_error: string
+    password_update_error: string
+    password_update_success: string
+    saving: string
+    change_password_button: string
+    theme_label: string
+    light_mode: string
+    dark_mode: string
   }
 }
 

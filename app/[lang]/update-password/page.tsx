@@ -53,7 +53,7 @@ export default function UpdatePasswordPage() {
     if (error) {
       setMessage(`${dict.settings.password_update_error}: ${error.message}`)
     } else {
-      setMessage(dict.settings.password_reset_success)
+      setMessage(dict.auth.password_reset_success)
       setNewPassword('')
       setConfirmPassword('')
       // Optionally redirect to home or login after successful update

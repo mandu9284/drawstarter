@@ -1,3 +1,4 @@
+import { Dictionary } from '@/types/type'
 import 'server-only'
 
 const dictionaries = {
