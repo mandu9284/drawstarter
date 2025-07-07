@@ -316,4 +316,5 @@
 - github pull request template는 validations의 required는 true, false를 포함해야 함
 
 ### github pull request template 위치
+
 - .github/pull_request_template.md
