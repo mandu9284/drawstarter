@@ -274,3 +274,47 @@
   "endOfLine": "lf"
 }
 ```
+
+## github issue template
+
+### rules
+
+- github issue를 만들 때는 반드시 github issue template를 사용해야 시
+- assignees는 반드시 추가해야 함
+- assignees는 팀원의 github username을 사용해야 함
+- labels는 반드시 추가해야 함
+- github issue template는 .github/ISSUE_TEMPLATE 폴더에 위치해야 함
+- github issue template는 yaml 파일로 작성해야 함
+- github issue template는 name, description, title, labels, body를 포함해야 함
+- github issue template는 body는 배열로 작성해야 함
+- github issue template는 body의 type은 textarea, input, checkbox, dropdown을 사용할 수 있음
+- github issue template는 body의 type이 textarea인 경우 attributes는 label, placeholder, description을 포함해야 함
+- github issue template는 body의 type이 input인 경우 attributes는 label, placeholder를 포함해야 함
+- github issue template는 body의 type이 checkbox인 경우 attributes는 label을 포함해야 함
+- github issue template는 body의 type이 dropdown인 경우 attributes는 label, options를 포함해야 함
+- github issue template는 validations는 required를 포함해야 함
+- github issue template는 validations의 required는 true, false를 포함해야 함
+
+### github issue template 위치
+
+- .github/ISSUE_TEMPLATE/bug_report.yml
+- .github/ISSUE_TEMPLATE/feature_request.yml
+
+## github pull request template
+
+### rules
+
+- github pull request를 만들 때는 반드시 github pull request template를 사용해야 함
+- github pull request template는 .github/pull_request_template.md 파일에 작성해야 함
+- github pull request template는 body는 배열로 작성해야 함
+- github pull request template는 body의 type은 textarea, input, checkbox, dropdown을 사용할 수 있음
+- github pull request template는 body의 type이 textarea인 경우 attributes는 label, placeholder, description을 포함해야 함
+- github pull request template는 body의 type이 input인 경우 attributes는 label, placeholder를 포함해야 함
+- github pull request template는 body의 type이 checkbox인 경우 attributes는 label을 포함해야 함
+- github pull request template는 body의 type이 dropdown인 경우 attributes는 label, options를 포함해야 함
+- github pull request template는 validations는 required를 포함해야 함
+- github pull request template는 validations의 required는 true, false를 포함해야 함
+
+### github pull request template 위치
+
+- .github/pull_request_template.md
