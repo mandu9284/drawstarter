@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { supabase } from '@/lib/supabaseClient'
 import { useDictionary } from '@/hooks/useDictionary'
-import Link from 'next/link'
+import { Button } from '@/components/common/Button'
 
 export default function ChangePasswordPage() {
   const { dict, lang } = useDictionary()
@@ -78,24 +78,28 @@ export default function ChangePasswordPage() {
           required
         />
 
-        <button
-          type='submit'
-          disabled={loading}
-          className='mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50'>
-          {loading
-            ? dict.settings.saving
-            : dict.settings.change_password_button}
-        </button>
+        <div className='flex flex-col md:flex-row gap-4 mt-8 items-stretch w-full'>
+          <Button
+            disabled={loading}
+            onClick={() => {
+              setNewPassword('')
+              setConfirmPassword('')
+            }}
+            variant='secondary'>
+            {dict.draw.reset}
+          </Button>
 
+          <Button
+            type='submit'
+            variant='primary'
+            disabled={loading}>
+            {loading
+              ? dict.settings.saving
+              : dict.settings.change_password_button}
+          </Button>
+        </div>
         {message && <p className='mt-4 text-sm text-red-500'>{message}</p>}
       </form>
-      <div className='mt-8 text-center'>
-        <Link
-          href={`/${lang}/settings`}
-          className='text-blue-500 hover:underline'>
-          {dict.header.settings}
-        </Link>
-      </div>
     </div>
   )
 }

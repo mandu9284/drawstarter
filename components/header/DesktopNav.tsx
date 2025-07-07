@@ -40,7 +40,6 @@ export default function DesktopNav({
               aria-haspopup='true'
               aria-expanded={isOpen}>
               <FaUser className='text-lg' />
-              <span>{user.email}</span>
               <IoMdArrowDropdown
                 className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
               />
