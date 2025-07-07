@@ -26,13 +26,13 @@ export function Button({
     base: 'text-sm sm:text-base',
   }
   const variants = {
-    primary: 'bg-blue-500 text-white',
-    secondary: 'bg-gray-300 text-black',
-    success: 'bg-green-500 text-white',
-    danger: 'bg-red-500 text-white',
-    warning: 'bg-yellow-500 text-black',
-    pause: 'bg-gray-500 text-white',
-    tertiary: 'bg-transparent text-gray-500 hover:text-gray-700',
+    primary: 'bg-blue-500 text-white hover:bg-blue-600',
+    secondary: 'bg-gray-300 text-black hover:bg-gray-400',
+    success: 'bg-green-500 text-white hover:bg-green-600',
+    danger: 'bg-red-500 text-white hover:bg-red-600',
+    warning: 'bg-yellow-500 text-black hover:bg-yellow-600',
+    pause: 'bg-gray-500 text-white hover:bg-gray-600',
+    tertiary: 'bg-transparent text-gray-500 hover:text-gray-400',
   }
 
   return (

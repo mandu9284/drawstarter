@@ -1,19 +1,18 @@
-'use client'
-
-import KrTerms from '@/components/terms/KrTerms'
-import JaTerms from '@/components/terms/JaTerms'
 import EnTerms from '@/components/terms/EnTerms'
-import { useDictionary } from '@/hooks/useDictionary'
+import JpTerms from '@/components/terms/JaTerms'
+import KrTerms from '@/components/terms/KrTerms'
 
-const TermsComponents = {
-  ko: KrTerms,
-  ja: JaTerms,
-  en: EnTerms,
-} as const
-
-export default function TermsPage() {
-  const { lang } = useDictionary()
-  const Terms = TermsComponents[lang as keyof typeof TermsComponents] || EnTerms
-
-  return <Terms lang={lang} />
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  const { lang } = await params
+  return (
+    <div className='container mx-auto p-4'>
+      {lang === 'en' && <EnTerms lang={lang} />}
+      {lang === 'ja' && <JpTerms lang={lang} />}
+      {lang === 'ko' && <KrTerms lang={lang} />}
+    </div>
+  )
 }

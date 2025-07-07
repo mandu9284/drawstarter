@@ -10,7 +10,27 @@
     "i_agree": "에 동의합니다.",
     "already_have_account": "이미 계정이 있으신가요?",
     "dont_have_account": "계정이 없으신가요?",
-    "logout": "로그아웃"
+    "logout": "로그아웃",
+    "forgot_password": "비밀번호를 잊으셨나요?",
+    "send_reset_email": "재설정 이메일 보내기",
+    "reset_password_success": "비밀번호 재설정 이메일이 전송되었습니다. 받은 편지함을 확인해주세요!",
+    "reset_password_error": "비밀번호 재설정 이메일 전송 중 오류가 발생했습니다",
+    "email_required_for_reset": "비밀번호를 재설정하려면 이메일을 입력해주세요.",
+    "back_to_login": "로그인으로 돌아가기",
+    "set_new_password_title": "새 비밀번호 설정",
+    "set_new_password_button": "새 비밀번호 설정",
+    "not_logged_in_error": "비밀번호를 업데이트하려면 로그인해야 합니다.",
+    "password_reset_success": "비밀번호가 성공적으로 재설정되었습니다!"
+  },
+  "landing": {
+    "title": "DrawStarter: 당신의 창작을 시작하는 가장 쉬운 방법",
+    "subtitle": "오늘 무엇을 그릴지 막막할 때, 작업 시간을 꾸준히 확보하고 싶을 때, DrawStarter가 여러분의 창작 여정을 함께합니다.",
+    "feature_1_title": "✍️ 랜덤 주제 생성기",
+    "feature_1_description": "영감이 떠오르지 않을 때, 버튼 하나로 다채로운 드로잉 주제를 즉시 제안받을 수 있습니다.",
+    "feature_2_title": "⏱️ 집중 타이머",
+    "feature_2_description": "설정된 시간 동안 온전히 작업에만 집중할 수 있도록 도와주는 타이머입니다.",
+    "feature_3_title": "📈 작업 시간 자동 기록",
+    "feature_3_description": "타이머를 사용한 시간이 자동으로 기록되어, 나의 작업 패턴과 누적 시간을 한눈에 파악할 수 있습니다."
   },
   "home": {
     "total_accumulated_time": "총 누적 시간",
@@ -31,6 +51,27 @@
     "title": "🎉 잘하셨어요!",
     "description": "오늘의 그림 시간을 완수했어요.",
     "thanks": "DrawStarter와 함께 해주셔서 감사합니다."
+  },
+  "header": {
+    "languages": "언어",
+    "language_label": "사용할 언어",
+    "settings": "설정",
+    "home": "홈",
+    "terms": "이용약관"
+  },
+  "settings": {
+    "change_password_title": "비밀번호 변경",
+    "new_password_label": "새 비밀번호",
+    "confirm_password_label": "새 비밀번호 확인",
+    "password_min_length_error": "비밀번호는 6자 이상이어야 합니다.",
+    "password_match_error": "비밀번호가 일치하지 않습니다.",
+    "password_update_error": "비밀번호 업데이트에 실패했습니다",
+    "password_update_success": "비밀번호가 성공적으로 업데이트되었습니다!",
+    "saving": "저장 중...",
+    "change_password_button": "비밀번호 변경",
+    "theme_label": "테마",
+    "light_mode": "라이트 모드",
+    "dark_mode": "다크 모드"
   },
   "metadata": {
     "description": "일러스트레이터를 위한 창작 주제 제안 & 타이머 도구",

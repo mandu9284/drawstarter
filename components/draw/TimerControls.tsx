@@ -1,5 +1,6 @@
 'use client'
 
+import { Dictionary } from '@/types/type'
 import { Button } from '../common/Button'
 import { ButtonGroup } from '../common/ButtonGroup'
 

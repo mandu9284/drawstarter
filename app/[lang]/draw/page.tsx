@@ -24,7 +24,7 @@ export default function DrawPage() {
     if (hasCompleted) {
       router.push(`/${lang}/done`)
     }
-  }, [hasCompleted, router])
+  }, [hasCompleted, router, lang])
 
   return (
     <div className='space-y-6 text-center px-4 sm:px-6 md:px-8'>
