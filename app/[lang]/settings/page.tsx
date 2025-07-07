@@ -6,6 +6,8 @@ import { languages } from '@/types/type'
 import Link from 'next/link'
 import { useUser } from '@/hooks/useUser'
 import { useTheme } from '@/hooks/useTheme'
+import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
 
 export default function SettingsPage() {
   const { dict, lang } = useDictionary()
@@ -24,14 +26,12 @@ export default function SettingsPage() {
 
   return (
     <div className='flex flex-col items-center py-2'>
-      <h1 className='text-2xl sm:text-3xl font-semibold'>
-        {dict.header.settings}
-      </h1>
+      <h1 className='text-2xl sm:text-3xl font-bold'>{dict.header.settings}</h1>
 
-      <div className='flex flex-col items-start py-2 mt-4 w-full'>
+      <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
         <label
           htmlFor='language'
-          className='mr-2 md:mr-2 text-lg font-semibold mb-2'>
+          className='text-lg font-semibold'>
           {dict.header.language_label}
         </label>
         <select
@@ -39,7 +39,7 @@ export default function SettingsPage() {
           id='language'
           onChange={handleLanguageChange}
           value={lang}
-          className='w-full border border-gray-300 rounded-md px-2 py-1 mt-2'>
+          className='w-full border border-gray-300 rounded-md px-2 py-1 mt-4'>
           {languages.map((language) => (
             <option
               key={language.code}
@@ -50,11 +50,9 @@ export default function SettingsPage() {
         </select>
       </div>
 
-      <div className='flex flex-col items-start py-2 mt-4 w-full'>
-        <h2 className='text-lg font-semibold mb-2'>
-          {dict.settings.theme_label}
-        </h2>
-        <div className='flex gap-4'>
+      <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
+        <h2 className='text-lg font-semibold'>{dict.settings.theme_label}</h2>
+        <div className='flex gap-4 mt-4'>
           <label className='inline-flex items-center'>
             <input
               type='radio'
@@ -81,11 +79,16 @@ export default function SettingsPage() {
       </div>
 
       {user && (
-        <div className='flex flex-col items-start py-2 mt-4 w-full'>
+        <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
+          <h2 className='text-lg font-semibold'>
+            {dict.settings.change_password_title}
+          </h2>
+
           <Link
             href={`/${lang}/settings/password`}
-            className='text-blue-500 hover:underline'>
+            className='text-blue-500 hover:underline mt-4 flex items-center gap-1'>
             {dict.settings.change_password_button}
+            <FaArrowUpRightFromSquare className='w-4 h-4' />
           </Link>
         </div>
       )}
