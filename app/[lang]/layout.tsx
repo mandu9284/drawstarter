@@ -46,6 +46,9 @@ export async function generateMetadata({
         ja: '/ja',
       },
     },
+    icons: {
+      icon: '/favicon.ico',
+    },
     openGraph: {
       images: '/og-image.png',
     },
