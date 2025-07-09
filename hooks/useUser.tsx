@@ -9,32 +9,40 @@ import {
 } from 'react'
 import { supabase } from '@/lib/supabaseClient'
 import type { AuthChangeEvent, Session, User } from '@supabase/supabase-js'
+import { getUserProfile, getUserProfileUrl } from '@/lib/supabaseQueries'
+import { UserProfile } from '@/types/userType'
 
 interface UserContextType {
   user: User | null
   loading: boolean
+  profile: UserProfile | null
 }
+
 
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
+  const [profile, setProfile] = useState<UserProfile | null>(null)
 
   useEffect(() => {
-    const getSession = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession()
-      setUser(session?.user ?? null)
-      setLoading(false)
-    }
-
-    getSession()
-
     const { data: authListener } = supabase.auth.onAuthStateChange(
       async (event: AuthChangeEvent, session: Session | null) => {
-        setUser(session?.user ?? null)
+        if (event === 'SIGNED_OUT') {
+          setUser(null)
+          setProfile(null)
+        } else {
+          setUser(session?.user ?? null)
+          const profile = await getUserProfile(session?.user?.id ?? '')
+          if (profile) {
+            const profileUrl = await getUserProfileUrl(profile.profile_picture_url)
+            setProfile({
+              userName: profile.user_name,
+              profilePictureUrl: profileUrl.publicUrl,
+            } as UserProfile)
+          }
+        }
         setLoading(false)
       },
     )
@@ -45,7 +53,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <UserContext.Provider value={{ user, loading }}>
+    <UserContext.Provider value={{ user, loading, profile }}>
       {children}
     </UserContext.Provider>
   )

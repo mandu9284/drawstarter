@@ -11,7 +11,7 @@ import DesktopNav from '../header/DesktopNav'
 import MobileNav from '../header/MobileNav'
 
 export function Header({ dict }: { dict: Dictionary }) {
-  const { user } = useUser()
+  const { user, profile } = useUser()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -68,6 +68,7 @@ export function Header({ dict }: { dict: Dictionary }) {
       </Link>
       <DesktopNav
         user={user}
+        profile={profile}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         dropdownRef={dropdownRef}

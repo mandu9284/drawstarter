@@ -4,9 +4,12 @@ import { FaGlobe, FaUser } from 'react-icons/fa'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import Link from 'next/link'
 import { Dictionary, Language } from '@/types/type'
+import { UserProfile } from '@/types/userType'
+import Image from 'next/image'
 
 export default function DesktopNav({
   user,
+  profile,
   isOpen,
   dropdownRef,
   dict,
@@ -17,6 +20,7 @@ export default function DesktopNav({
   redirectedPathName,
 }: {
   user: User | null
+  profile: UserProfile | null
   isOpen: boolean
   dropdownRef: React.RefObject<HTMLDivElement | null>
   dict: Dictionary
@@ -39,7 +43,17 @@ export default function DesktopNav({
               className='flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors'
               aria-haspopup='true'
               aria-expanded={isOpen}>
-              <FaUser className='text-lg' />
+              {profile?.profilePictureUrl ? (
+                <Image
+                  src={profile.profilePictureUrl}
+                  alt='Profile'
+                  width={32}
+                  height={32}
+                  className='w-8 h-8 rounded-full'
+                />
+              ) : (
+                <FaUser className='text-lg' />
+              )}
               <IoMdArrowDropdown
                 className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
               />
@@ -51,7 +65,7 @@ export default function DesktopNav({
                   <Button
                     variant='tertiary'
                     size='sm'>
-                    {user.email}
+                    {profile?.userName}
                   </Button>
                 </div>
                 <div className='border-t border-gray-200 dark:border-gray-700'></div>
