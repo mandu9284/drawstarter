@@ -1,6 +1,7 @@
 import randomPromptWord from '@/dictionaries/random-prompt-word.json'
+import { SupportedLanguage } from '@/types/type'
 
-export function getRandomPrompt(lang: 'en' | 'ja' | 'kr'): string {
+export function getRandomPrompt(lang: SupportedLanguage): string {
   const subjectList = randomPromptWord[lang].subjects
   const styleList = randomPromptWord[lang].styles
   const extraList = randomPromptWord[lang].extras

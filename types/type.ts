@@ -92,3 +92,5 @@ export const languages: Language[] = [
   { code: 'ja', name: '日本語', flag: '🇯🇵' },
   { code: 'ko', name: '한국어', flag: '🇰🇷' },
 ]
+
+export type SupportedLanguage = 'en' | 'ja' | 'kr'

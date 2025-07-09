@@ -7,11 +7,10 @@ import { useDictionary } from '@/hooks/useDictionary'
 import { useUser } from '@/hooks/useUser'
 import { getRandomPrompt } from '@/lib/prompt'
 import { supabase } from '@/lib/supabaseClient'
+import { SupportedLanguage } from '@/types/type'
 
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
-
-type SupportedLanguage = 'en' | 'ja' | 'kr'
 
 const isSupportedLanguage = (lang: string): lang is SupportedLanguage => {
   return lang === 'en' || lang === 'ja' || lang === 'kr'
