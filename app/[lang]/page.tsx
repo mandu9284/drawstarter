@@ -7,14 +7,22 @@ import { useDictionary } from '@/hooks/useDictionary'
 import { useUser } from '@/hooks/useUser'
 import { getRandomPrompt } from '@/lib/prompt'
 import { supabase } from '@/lib/supabaseClient'
+import { SupportedLanguage } from '@/types/type'
 
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
+const isSupportedLanguage = (lang: string): lang is SupportedLanguage => {
+  return lang === 'en' || lang === 'ja' || lang === 'kr'
+}
+
 export default function Page() {
   const { dict, lang } = useDictionary()
   const { user, loading } = useUser()
-  const [prompt, setPrompt] = useState(getRandomPrompt())
+
+  const currentLang: SupportedLanguage = isSupportedLanguage(lang) ? lang : 'en' // Default to 'en' if lang is not supported
+
+  const [prompt, setPrompt] = useState(getRandomPrompt(currentLang))
   const [totalMinutes, setTotalMinutes] = useState(0)
   const [todayMinutes, setTodayMinutes] = useState(0)
 
@@ -115,7 +123,7 @@ export default function Page() {
       <ButtonGroup>
         <Button
           variant='secondary'
-          onClick={() => setPrompt(getRandomPrompt())}>
+          onClick={() => setPrompt(getRandomPrompt(currentLang))}>
           {dict.home.view_other_topics}
         </Button>
         <Link href={`/${lang}/draw`}>
