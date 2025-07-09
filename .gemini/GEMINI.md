@@ -1,5 +1,7 @@
-## 프로젝트 룰 
+## 프로젝트 룰
+
 ### i18n
+
 - i18n의 번역 (dict) 반드시 사용해야 함
 - 타입은 반드시 types/type.ts에 정의해야 함
 - 타입이 없으면 추가해야 함
@@ -279,7 +281,6 @@
 }
 ```
 
-
 ### github issue template
 
 #### rules
@@ -300,13 +301,15 @@
 - github issue template는 body의 type이 dropdown인 경우 attributes는 label, options를 포함해야 함
 - github issue template는 validations는 required를 포함해야 함
 - github issue template는 validations의 required는 true, false를 포함해야 함
-- 
+-
+
 #### github issue template 위치
+
 - .github/ISSUE_TEMPLATE/bug_report.yml
 - .github/ISSUE_TEMPLATE/feature_request.yml
 
-
 ### github pull request template
+
 #### rules
 
 - github pull request를 만들 때는 반드시 github pull request template를 사용해야 함
@@ -320,6 +323,6 @@
 - github pull request template는 validations는 required를 포함해야 함
 - github pull request template는 validations의 required는 true, false를 포함해야 함
 
-
 #### github pull request template 위치
+
 - .github/pull_request_template.md

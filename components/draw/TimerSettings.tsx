@@ -18,19 +18,23 @@ export function TimerSettings({
   }
 
   return (
-    <div className="flex items-center justify-center space-x-2">
+    <div className='flex items-center justify-center space-x-2'>
       <input
-        type="number"
+        type='number'
         value={minutes}
         onChange={(e) => {
           const value = parseInt(e.target.value, 10)
           setMinutes(isNaN(value) ? 0 : value)
         }}
-        className="w-24 rounded-md border-gray-700 text-center border-1"
-        min="1"
+        className='w-24 rounded-md border-gray-700 text-center border-1'
+        min='1'
       />
       <span>{dict.draw.minutes}</span>
-      <Button onClick={handleSetTime} variant="tertiary">{dict.draw.setTime}</Button>
+      <Button
+        onClick={handleSetTime}
+        variant='tertiary'>
+        {dict.draw.setTime}
+      </Button>
     </div>
   )
 }

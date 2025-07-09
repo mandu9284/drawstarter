@@ -34,7 +34,10 @@ export default function DrawPage() {
         ⏱️ {dict.draw.timer}
       </h2>
       <TimerDisplay time={timeLeft} />
-      <TimerSettings onSetTime={setTime} dict={dict} />
+      <TimerSettings
+        onSetTime={setTime}
+        dict={dict}
+      />
       <TimerControls
         isRunning={isRunning}
         onToggle={toggleTimer}
