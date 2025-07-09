@@ -14,7 +14,7 @@ import { useCallback, useEffect, useState } from 'react'
 export default function Page() {
   const { dict, lang } = useDictionary()
   const { user, loading } = useUser()
-  const [prompt, setPrompt] = useState(getRandomPrompt())
+  const [prompt, setPrompt] = useState(getRandomPrompt(lang as 'en' | 'ja' | 'kr'))
   const [totalMinutes, setTotalMinutes] = useState(0)
   const [todayMinutes, setTodayMinutes] = useState(0)
 
@@ -115,7 +115,7 @@ export default function Page() {
       <ButtonGroup>
         <Button
           variant='secondary'
-          onClick={() => setPrompt(getRandomPrompt())}>
+          onClick={() => setPrompt(getRandomPrompt(lang as 'en' | 'ja' | 'kr'))}>
           {dict.home.view_other_topics}
         </Button>
         <Link href={`/${lang}/draw`}>

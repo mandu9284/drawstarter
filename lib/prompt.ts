@@ -1,5 +1,7 @@
-export function getRandomPrompt(): string {
-  const subjects = ['고양이', '로봇', '사막', '달', '도시', '바다']
+import subjects from '@/dictionaries/subjects.json'
+
+export function getRandomPrompt(lang: 'en' | 'ja' | 'kr'): string {
+  const subjectList = subjects[lang]
   const styles = ['수채화 스타일', '픽셀 아트', '흑백 잉크', '3D 렌더링']
   const extras = [
     '투명한 질감',
@@ -10,5 +12,5 @@ export function getRandomPrompt(): string {
 
   const r = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)]
 
-  return `${r(subjects)} + ${r(styles)} + ${r(extras)}`
+  return `${r(subjectList)} + ${r(styles)} + ${r(extras)}`
 }
