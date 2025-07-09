@@ -13,7 +13,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
 const isSupportedLanguage = (lang: string): lang is SupportedLanguage => {
-  return lang === 'en' || lang === 'ja' || lang === 'kr'
+  return lang === 'en' || lang === 'ja' || lang === 'ko'
 }
 
 export default function Page() {
