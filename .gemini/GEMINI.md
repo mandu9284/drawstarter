@@ -279,11 +279,13 @@
 }
 ```
 
+
 ### github issue template
 
 #### rules
 
 - github issue를 만들 때는 반드시 github issue template를 사용해야 함
+
 - assignees는 반드시 추가해야 함
 - assignees는 팀원의 github username을 사용해야 함
 - labels는 반드시 추가해야 함
@@ -298,14 +300,13 @@
 - github issue template는 body의 type이 dropdown인 경우 attributes는 label, options를 포함해야 함
 - github issue template는 validations는 required를 포함해야 함
 - github issue template는 validations의 required는 true, false를 포함해야 함
-
+- 
 #### github issue template 위치
-
 - .github/ISSUE_TEMPLATE/bug_report.yml
 - .github/ISSUE_TEMPLATE/feature_request.yml
 
-#### github pull request template
 
+### github pull request template
 #### rules
 
 - github pull request를 만들 때는 반드시 github pull request template를 사용해야 함
@@ -319,6 +320,6 @@
 - github pull request template는 validations는 required를 포함해야 함
 - github pull request template는 validations의 required는 true, false를 포함해야 함
 
-#### github pull request template 위치
 
+#### github pull request template 위치
 - .github/pull_request_template.md
