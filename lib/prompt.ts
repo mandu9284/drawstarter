@@ -1,9 +1,9 @@
-import subjects from '@/dictionaries/subjects.json'
+import randomPromptWord from '@/dictionaries/random-prompt-word.json'
 
 export function getRandomPrompt(lang: 'en' | 'ja' | 'kr'): string {
-  const subjectList = subjects[lang].subjects
-  const styleList = subjects[lang].styles
-  const extraList = subjects[lang].extras
+  const subjectList = randomPromptWord[lang].subjects
+  const styleList = randomPromptWord[lang].styles
+  const extraList = randomPromptWord[lang].extras
 
   const r = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)]
 

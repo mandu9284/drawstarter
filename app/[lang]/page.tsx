@@ -14,7 +14,7 @@ import { useCallback, useEffect, useState } from 'react'
 type SupportedLanguage = 'en' | 'ja' | 'kr'
 
 const isSupportedLanguage = (lang: string): lang is SupportedLanguage => {
-  return (lang === 'en' || lang === 'ja' || lang === 'kr')
+  return lang === 'en' || lang === 'ja' || lang === 'kr'
 }
 
 export default function Page() {
@@ -23,9 +23,7 @@ export default function Page() {
 
   const currentLang: SupportedLanguage = isSupportedLanguage(lang) ? lang : 'en' // Default to 'en' if lang is not supported
 
-  const [prompt, setPrompt] = useState(
-    getRandomPrompt(currentLang),
-  )
+  const [prompt, setPrompt] = useState(getRandomPrompt(currentLang))
   const [totalMinutes, setTotalMinutes] = useState(0)
   const [todayMinutes, setTodayMinutes] = useState(0)
 
@@ -126,9 +124,7 @@ export default function Page() {
       <ButtonGroup>
         <Button
           variant='secondary'
-          onClick={() =>
-            setPrompt(getRandomPrompt(currentLang))
-          }>
+          onClick={() => setPrompt(getRandomPrompt(currentLang))}>
           {dict.home.view_other_topics}
         </Button>
         <Link href={`/${lang}/draw`}>
