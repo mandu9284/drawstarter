@@ -1,6 +1,14 @@
-## TypeScript & Next.js 코딩 규약 추천
+## 프로젝트 룰
 
-### 1\. TypeScript 기본 권장 사항
+### i18n
+
+- i18n의 번역 (dict) 반드시 사용해야 함
+- 타입은 반드시 types/type.ts에 정의해야 함
+- 타입이 없으면 추가해야 함
+
+### TypeScript & Next.js 코딩 규약
+
+#### 1\. TypeScript 기본 권장 사항
 
 - **명시적인 타입 선언**: 가능한 한 명시적으로 타입을 선언하여 코드의 가독성과 유지보수성을 높입니다.
   - **Bad**: `let user = {};`
@@ -69,7 +77,7 @@
     const currentStatus: Status = 'pending'
     ```
 
-### 2\. Next.js 특정 권장 사항
+#### Next.js 특정 권장 사항
 
 - **파일 및 폴더 구조**: 일관성 있는 파일 구조를 유지하여 프로젝트 탐색 및 관리를 용이하게 합니다.
   - **`pages`**: 페이지 컴포넌트
@@ -171,7 +179,7 @@
   - `NEXT_PUBLIC_` 접두사를 붙여야 클라이언트 측 코드에서 접근할 수 있습니다.
   - 민감한 정보는 클라이언트 측에서 직접 노출되지 않도록 주의합니다.
 
-### 3\. 공통 코딩 스타일 및 도구
+#### 공통 코딩 스타일 및 도구
 
 - **ESLint**: 코드 품질을 유지하고 잠재적인 버그를 미리 발견합니다. Next.js는 기본적으로 ESLint를 지원하며, TypeScript 관련 플러그인(`@typescript-eslint/eslint-plugin`)을 함께 사용합니다.
   - **규칙 설정**: 팀의 합의를 통해 특정 규칙을 활성화/비활성화하고 에러/경고 레벨을 조정합니다.
@@ -202,9 +210,7 @@
   - **조기 리턴 (Early Return)**: 조건문이 복잡할 때 중첩을 줄이고 가독성을 높입니다.
   - **디스트럭처링 (Destructuring)**: 객체/배열 디스트럭처링을 적극 활용하여 코드 간결성 높입니다.
 
----
-
-### 추천 설정 예시
+#### 추천 설정 예시
 
 **`tsconfig.json`**
 
@@ -275,11 +281,12 @@
 }
 ```
 
-## github issue template
+### github issue template
 
-### rules
+#### rules
 
-- github issue를 만들 때는 반드시 github issue template를 사용해야 시
+- github issue를 만들 때는 반드시 github issue template를 사용해야 함
+
 - assignees는 반드시 추가해야 함
 - assignees는 팀원의 github username을 사용해야 함
 - labels는 반드시 추가해야 함
@@ -294,15 +301,16 @@
 - github issue template는 body의 type이 dropdown인 경우 attributes는 label, options를 포함해야 함
 - github issue template는 validations는 required를 포함해야 함
 - github issue template는 validations의 required는 true, false를 포함해야 함
+-
 
-### github issue template 위치
+#### github issue template 위치
 
 - .github/ISSUE_TEMPLATE/bug_report.yml
 - .github/ISSUE_TEMPLATE/feature_request.yml
 
-## github pull request template
+### github pull request template
 
-### rules
+#### rules
 
 - github pull request를 만들 때는 반드시 github pull request template를 사용해야 함
 - github pull request template는 .github/pull_request_template.md 파일에 작성해야 함
@@ -315,6 +323,6 @@
 - github pull request template는 validations는 required를 포함해야 함
 - github pull request template는 validations의 required는 true, false를 포함해야 함
 
-### github pull request template 위치
+#### github pull request template 위치
 
 - .github/pull_request_template.md

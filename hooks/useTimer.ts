@@ -7,7 +7,8 @@ const DEFAULT_SECOND = DEFAULT_MINUTE * 60
 
 export function useTimer() {
   const { user } = useUser()
-  const [timeLeft, setTimeLeft] = useState(DEFAULT_SECOND)
+  const [initialTime, setInitialTime] = useState(DEFAULT_SECOND)
+  const [timeLeft, setTimeLeft] = useState(initialTime)
   const [isRunning, setIsRunning] = useState(false)
   const [hasCompleted, setHasCompleted] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -34,18 +35,24 @@ export function useTimer() {
 
   const resetTimer = useCallback(() => {
     setIsRunning(false)
-    setTimeLeft(DEFAULT_SECOND)
+    setTimeLeft(initialTime)
     setHasCompleted(false)
-  }, [])
+  }, [initialTime])
 
   const completeNow = useCallback(() => {
     setIsRunning(false)
-    const spentMinutes = Math.floor((DEFAULT_SECOND - timeLeft) / 60)
+    const spentMinutes = Math.floor((initialTime - timeLeft) / 60)
     if (spentMinutes > 0) {
       saveData(spentMinutes)
     }
     setHasCompleted(true)
-  }, [timeLeft, saveData])
+  }, [initialTime, timeLeft, saveData])
+
+  const setTime = useCallback((minutes: number) => {
+    const newTime = minutes * 60
+    setInitialTime(newTime)
+    setTimeLeft(newTime)
+  }, [])
 
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
@@ -63,6 +70,10 @@ export function useTimer() {
     }
   }, [timeLeft, isRunning, hasCompleted, completeNow])
 
+  useEffect(() => {
+    setTimeLeft(initialTime)
+  }, [initialTime])
+
   return {
     timeLeft,
     isRunning,
@@ -70,5 +81,6 @@ export function useTimer() {
     toggleTimer,
     resetTimer,
     completeNow,
+    setTime,
   }
 }
