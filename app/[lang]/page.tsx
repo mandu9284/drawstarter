@@ -11,11 +11,20 @@ import { supabase } from '@/lib/supabaseClient'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
+type SupportedLanguage = 'en' | 'ja' | 'kr'
+
+const isSupportedLanguage = (lang: string): lang is SupportedLanguage => {
+  return (lang === 'en' || lang === 'ja' || lang === 'kr')
+}
+
 export default function Page() {
   const { dict, lang } = useDictionary()
   const { user, loading } = useUser()
+
+  const currentLang: SupportedLanguage = isSupportedLanguage(lang) ? lang : 'en' // Default to 'en' if lang is not supported
+
   const [prompt, setPrompt] = useState(
-    getRandomPrompt(lang as 'en' | 'ja' | 'kr'),
+    getRandomPrompt(currentLang),
   )
   const [totalMinutes, setTotalMinutes] = useState(0)
   const [todayMinutes, setTodayMinutes] = useState(0)
@@ -118,7 +127,7 @@ export default function Page() {
         <Button
           variant='secondary'
           onClick={() =>
-            setPrompt(getRandomPrompt(lang as 'en' | 'ja' | 'kr'))
+            setPrompt(getRandomPrompt(currentLang))
           }>
           {dict.home.view_other_topics}
         </Button>
