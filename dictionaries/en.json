@@ -45,7 +45,9 @@
     "reset": "Reset",
     "pause": "Pause",
     "complete": "Complete",
-    "timer": "Timer"
+    "timer": "Timer",
+    "minutes": "Minutes",
+    "setTime": "Set Time"
   },
   "done": {
     "title": "🎉 You did it!",

@@ -2,6 +2,7 @@
 
 import { TimerControls } from '@/components/draw/TimerControls'
 import { TimerDisplay } from '@/components/draw/TimerDisplay'
+import { TimerSettings } from '@/components/draw/TimerSettings'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { useTimer } from '@/hooks/useTimer'
@@ -18,6 +19,7 @@ export default function DrawPage() {
     resetTimer,
     completeNow,
     hasCompleted,
+    setTime,
   } = useTimer()
 
   useEffect(() => {
@@ -32,6 +34,7 @@ export default function DrawPage() {
         ⏱️ {dict.draw.timer}
       </h2>
       <TimerDisplay time={timeLeft} />
+      <TimerSettings onSetTime={setTime} dict={dict} />
       <TimerControls
         isRunning={isRunning}
         onToggle={toggleTimer}

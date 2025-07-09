@@ -36,6 +36,8 @@ export interface Dictionary {
     pause: string
     complete: string
     timer: string
+    minutes: string
+    setTime: string
   }
   done: {
     title: string
