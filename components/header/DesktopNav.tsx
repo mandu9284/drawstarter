@@ -67,7 +67,7 @@ export default function DesktopNav({
                 aria-orientation='vertical'
                 aria-labelledby='user-menu'>
                 <div className='px-4 py-3 border-b border-gray-100 dark:border-gray-700'>
-                  <p className='text-sm font-medium text-gray-900 dark:text-white text-left'>
+                  <p className='text-sm font-medium text-gray-800 dark:text-white text-left'>
                     {profile?.userName || ''}
                   </p>
                   <p className='text-sm text-gray-500 dark:text-gray-300 truncate text-left'>

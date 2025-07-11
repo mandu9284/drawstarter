@@ -24,7 +24,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className='flex flex-col items-center py-2'>
+    <div className='flex flex-col items-center py-2 text-gray-800 dark:text-white'>
       <h1 className='text-2xl sm:text-3xl font-bold'>{dict.header.settings}</h1>
 
       <div className='flex flex-col items-stretch py-2 mt-4 w-full'>

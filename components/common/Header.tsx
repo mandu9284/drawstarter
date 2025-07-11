@@ -62,9 +62,9 @@ export function Header({ dict }: { dict: Dictionary }) {
   return (
     <header
       ref={headerRef}
-      className='relative text-center py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center px-4'>
+      className='relative text-center py-4 border-b border-gray-400 dark:border-gray-700 flex justify-between items-center px-4'>
       <Link href={pathname ? `/${currentLocale}` : '/'}>
-        <h1 className='text-2xl sm:text-3xl font-bold hover:opacity-80 transition-opacity'>
+        <h1 className='text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white hover:opacity-80 transition-opacity'>
           🎨 DrawStarter
         </h1>
       </Link>

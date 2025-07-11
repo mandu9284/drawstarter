@@ -224,7 +224,7 @@ export default function ProfileEditForm() {
 
       <Button
         onClick={handleSubmit}
-        className='disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-400'
+        className='disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-400 md:w-1/2 w-full'
         disabled={isSubmitting || !isValidUserName}>
         {isSubmitting
           ? `${dict.settings.saving}`
