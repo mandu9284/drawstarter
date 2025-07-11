@@ -1,3 +1,4 @@
+'use client'
 import EnPrivacy from '@/components/terms/EnPrivacy'
 import KrPrivacy from '@/components/terms/KrPrivacy'
 import JaPrivacy from '@/components/terms/JaPrivacy'
