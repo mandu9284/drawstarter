@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import { useDictionary } from '@/hooks/useDictionary'
-import { languages } from '@/types/type'
+import { languages } from '@/types/dictionaryType'
 import Link from 'next/link'
 import { useUser } from '@/hooks/useUser'
 import { useTheme } from '@/hooks/useTheme'
@@ -24,7 +24,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className='flex flex-col items-center py-2'>
+    <div className='flex flex-col items-center py-2 text-gray-800 dark:text-white'>
       <h1 className='text-2xl sm:text-3xl font-bold'>{dict.header.settings}</h1>
 
       <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
@@ -78,18 +78,32 @@ export default function SettingsPage() {
       </div>
 
       {user && (
-        <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
-          <h2 className='text-lg font-semibold'>
-            {dict.settings.change_password_title}
-          </h2>
+        <>
+          <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
+            <h2 className='text-lg font-semibold'>
+              {dict.settings.change_password_title}
+            </h2>
 
-          <Link
-            href={`/${lang}/settings/password`}
-            className='text-blue-500 hover:underline mt-4 flex items-center gap-1'>
-            {dict.settings.change_password_button}
-            <FaArrowUpRightFromSquare className='w-4 h-4' />
-          </Link>
-        </div>
+            <Link
+              href={`/${lang}/settings/password`}
+              className='text-blue-500 hover:underline mt-4 flex items-center gap-1'>
+              {dict.settings.change_password_button}
+              <FaArrowUpRightFromSquare className='w-4 h-4' />
+            </Link>
+          </div>
+
+          <div className='flex flex-col items-stretch py-2 mt-4 w-full'>
+            <h2 className='text-lg font-semibold'>
+              {dict.settings.profile_title}
+            </h2>
+            <Link
+              href={`/${lang}/settings/profile`}
+              className='text-blue-500 hover:underline mt-4 flex items-center gap-1'>
+              {dict.settings.profile_button}
+              <FaArrowUpRightFromSquare className='w-4 h-4' />
+            </Link>
+          </div>
+        </>
       )}
     </div>
   )

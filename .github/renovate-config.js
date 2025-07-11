@@ -7,6 +7,7 @@ module.exports = {
   forkProcessing: 'enabled',
   repositories: ['mandu9284/drawstarter'],
   labels: ['renovatebot'],
+  timezone: 'Asia/Tokyo',
   assigneesFromCodeOwners: true,
   dependencyDashboard: true,
   packageRules: [

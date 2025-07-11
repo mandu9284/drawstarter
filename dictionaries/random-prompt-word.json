@@ -228,7 +228,7 @@
     ],
     "extras": ["透明な質感", "未来的な雰囲気", "レトロな感じ", "鮮やかな色彩"]
   },
-  "kr": {
+  "ko": {
     "subjects": [
       "초현실적인 풍경",
       "친구의 초상화",
@@ -332,17 +332,7 @@
       "동굴 벽화",
       "상형문자"
     ],
-    "styles": [
-      "watercolor style",
-      "pixel art",
-      "black and white ink",
-      "3D rendering"
-    ],
-    "extras": [
-      "transparent texture",
-      "futuristic atmosphere",
-      "retro feel",
-      "vibrant colors"
-    ]
+    "styles": ["수채화", "픽셀 아트", "흑백 인크", "3D 렌더링"],
+    "extras": ["투명한 질감", "미래적인 분위기", "레토로한 느낌", "밝은 색상"]
   }
 }

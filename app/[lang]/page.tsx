@@ -7,13 +7,13 @@ import { useDictionary } from '@/hooks/useDictionary'
 import { useUser } from '@/hooks/useUser'
 import { getRandomPrompt } from '@/lib/prompt'
 import { supabase } from '@/lib/supabaseClient'
-import { SupportedLanguage } from '@/types/type'
+import { SupportedLanguage } from '@/types/dictionaryType'
 
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
 const isSupportedLanguage = (lang: string): lang is SupportedLanguage => {
-  return lang === 'en' || lang === 'ja' || lang === 'kr'
+  return lang === 'en' || lang === 'ja' || lang === 'ko'
 }
 
 export default function Page() {
@@ -107,7 +107,7 @@ export default function Page() {
   }
 
   return (
-    <div className='space-y-6 px-4 sm:px-6 md:px-8'>
+    <div className='space-y-6 px-4 sm:px-6 md:px-8 mt-16'>
       <PromptCard
         prompt={prompt}
         todaySubject={dict.home.today_subject}

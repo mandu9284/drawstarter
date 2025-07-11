@@ -73,7 +73,24 @@
     "change_password_button": "パスワードを変更",
     "theme_label": "テーマ",
     "light_mode": "ライトモード",
-    "dark_mode": "ダークモード"
+    "dark_mode": "ダークモード",
+    "profile_title": "プロフィール",
+    "profile_button": "プロフィール",
+    "profile_image_label": "プロフィール画像",
+    "username_label": "ユーザー名",
+    "save_profile": "プロフィール保存",
+    "error_message_not_logged_in": "ログインしてプロフィールを更新する必要があります。",
+    "error_message": "予期しないエラーが発生しました。",
+    "loading_user_data": "ユーザーデータを読み込んでいます...",
+    "error_loading_user_data": "ユーザーデータの読み込み中にエラーが発生しました",
+    "profile_updated_successfully": "プロフィールが正常に更新されました！",
+    "username_min_length_error": "ユーザー名は3文字以上必要です。",
+    "username_max_length_error": "ユーザー名は25文字以下で入力してください。",
+    "username_regex_error": "ユーザー名は英文字、数字、アンダースコア、ピリオドのみで構成できます。",
+    "username_reserved_error": "ユーザー名は予約語を使用できません。",
+    "username_start_error": "ユーザー名はピリオドで始まりません。",
+    "username_end_error": "ユーザー名はピリオドで終わる必要があります。",
+    "delete_profile_picture_confirmation": "プロフィール画像を削除しますか？"
   },
   "metadata": {
     "description": "イラストレーターのための創作テーマ提案＆タイマーツール",
@@ -88,6 +105,8 @@
       "イラストレーション",
       "アート",
       "お絵描き"
-    ]
+    ],
+    "terms_of_service": "利用規約",
+    "privacy_policy": "プライバシーポリシー"
   }
 }

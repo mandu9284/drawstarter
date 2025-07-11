@@ -5,13 +5,15 @@ import { redirect, usePathname } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import { useUser } from '@/hooks/useUser'
 import { supabase } from '@/lib/supabaseClient'
-import { languages } from '@/types/type'
-import { Dictionary } from '@/types/type'
+import { languages } from '@/types/dictionaryType'
+import { Dictionary } from '@/types/dictionaryType'
 import DesktopNav from '../header/DesktopNav'
 import MobileNav from '../header/MobileNav'
+import { useUserProfile } from '@/hooks/useUserProfile'
 
 export function Header({ dict }: { dict: Dictionary }) {
   const { user } = useUser()
+  const { userProfile } = useUserProfile()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -60,14 +62,15 @@ export function Header({ dict }: { dict: Dictionary }) {
   return (
     <header
       ref={headerRef}
-      className='relative text-center py-4 border-b flex justify-between items-center px-4'>
+      className='relative text-center py-4 border-b border-gray-400 dark:border-gray-700 flex justify-between items-center px-4'>
       <Link href={pathname ? `/${currentLocale}` : '/'}>
-        <h1 className='text-2xl sm:text-3xl font-bold hover:opacity-80 transition-opacity'>
+        <h1 className='text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white hover:opacity-80 transition-opacity'>
           🎨 DrawStarter
         </h1>
       </Link>
       <DesktopNav
         user={user}
+        profile={userProfile}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         dropdownRef={dropdownRef}
@@ -79,6 +82,7 @@ export function Header({ dict }: { dict: Dictionary }) {
       />
       <MobileNav
         user={user}
+        profile={userProfile}
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         dict={dict}

@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import { Header } from '@/components/common/Header'
 import { Analytics } from '@vercel/analytics/next'
-import { UserProvider } from '@/hooks/useUser'
+import { UserProvider } from '@/context/UserContext'
 import { getDictionary } from '@/lib/dictionaries'
-import { DictionaryProvider } from '@/hooks/useDictionary'
+import { DictionaryProvider } from '@/context/DictionaryContext'
 import * as React from 'react'
-import { Dictionary } from '@/types/type'
-import { ThemeProvider } from '@/hooks/useTheme'
+import { Dictionary } from '@/types/dictionaryType'
+import { ThemeProvider } from '@/context/ThemeContext'
+import { UserProfileProvider } from '@/context/UserProfileContext'
+import Footer from '@/components/common/Footer'
 
 export async function generateMetadata({
   params,
@@ -66,17 +68,25 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className='bg-gray-50 text-gray-800 font-sans'>
         <UserProvider>
-          <ThemeProvider>
-            <DictionaryProvider
-              dict={dict}
-              lang={lang}>
-              <Header dict={dict} />
-              <main className='max-w-md md:max-w-xl lg:max-w-2xl mx-auto p-4'>
-                {children}
-              </main>
-              <Analytics />
-            </DictionaryProvider>
-          </ThemeProvider>
+          <UserProfileProvider>
+            <ThemeProvider>
+              <DictionaryProvider
+                dict={dict}
+                lang={lang}>
+                <div className='flex flex-col'>
+                  <Header dict={dict} />
+                  <main className='mx-auto max-w-md md:max-w-xl lg:max-w-2xl p-4 min-h-screen'>
+                    {children}
+                  </main>
+                  <Footer
+                    dict={dict}
+                    lang={lang}
+                  />
+                </div>
+                <Analytics />
+              </DictionaryProvider>
+            </ThemeProvider>
+          </UserProfileProvider>
         </UserProvider>
       </body>
     </html>
