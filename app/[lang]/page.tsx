@@ -107,7 +107,7 @@ export default function Page() {
   }
 
   return (
-    <div className='space-y-6 px-4 sm:px-6 md:px-8'>
+    <div className='space-y-6 px-4 sm:px-6 md:px-8 mt-16'>
       <PromptCard
         prompt={prompt}
         todaySubject={dict.home.today_subject}

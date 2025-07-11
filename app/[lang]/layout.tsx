@@ -73,9 +73,9 @@ export default async function RootLayout({
               <DictionaryProvider
                 dict={dict}
                 lang={lang}>
-                <div className='flex flex-col min-h-screen'>
+                <div className='flex flex-col'>
                   <Header dict={dict} />
-                  <main className='max-w-md md:max-w-xl lg:max-w-2xl mx-auto p-4 flex-1 pb-30'>
+                  <main className='mx-auto max-w-md md:max-w-xl lg:max-w-2xl p-4 min-h-screen'>
                     {children}
                   </main>
                   <Footer
