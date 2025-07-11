@@ -16,11 +16,12 @@ import { AVATARS_BUCKET_ID } from '@/types/supabaseType'
 import { FaMinus, FaUpload } from 'react-icons/fa'
 import { z } from 'zod'
 import { getUserNameSchema } from '@/schema/userNameSchema'
+import Image from 'next/image'
 
 export default function ProfileEditForm() {
   const { user, loading } = useUser()
   const { userProfile, setUserProfile } = useUserProfile()
-  const { dict, lang } = useDictionary()
+  const { dict } = useDictionary()
   const [previewImage, setPreviewImage] = useState<string | null>(null)
   const [userName, setUserName] = useState<string>('')
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
@@ -187,7 +188,7 @@ export default function ProfileEditForm() {
             height={128}
           />
         ) : (
-          <img
+          <Image
             src={'/default-avatar.png'}
             alt='Profile Preview'
             width={128}

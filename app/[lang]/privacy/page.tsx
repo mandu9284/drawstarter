@@ -1,15 +1,10 @@
-import { getDictionary } from '@/lib/dictionaries'
-import { type Locale } from '@/i18n.config'
 import EnPrivacy from '@/components/terms/EnPrivacy'
 import KrPrivacy from '@/components/terms/KrPrivacy'
 import JaPrivacy from '@/components/terms/JaPrivacy'
+import { useDictionary } from '@/hooks/useDictionary'
 
-const PrivacyPolicy = async ({
-  params: { lang },
-}: {
-  params: { lang: Locale }
-}) => {
-  const dictionary = await getDictionary(lang)
+const PrivacyPolicy = () => {
+  const { lang } = useDictionary()
 
   const PrivacyPolicyComponent = () => {
     switch (lang) {
