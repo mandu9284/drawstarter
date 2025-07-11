@@ -7,7 +7,7 @@ import { useDictionary } from '@/hooks/useDictionary'
 import { useUser } from '@/hooks/useUser'
 import { getRandomPrompt } from '@/lib/prompt'
 import { supabase } from '@/lib/supabaseClient'
-import { SupportedLanguage } from '@/types/type'
+import { SupportedLanguage } from '@/types/dictionaryType'
 
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'

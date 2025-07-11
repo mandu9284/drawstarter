@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Dictionary } from '@/types/type'
+import { Dictionary } from '@/types/dictionaryType'
 import { Button } from '../common/Button'
 
 export function TimerSettings({

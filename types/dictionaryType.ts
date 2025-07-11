@@ -47,6 +47,8 @@ export interface Dictionary {
   metadata: {
     description: string
     keywords: string[]
+    terms_of_service: string
+    privacy_policy: string
   }
   landing: {
     title: string
@@ -78,6 +80,23 @@ export interface Dictionary {
     theme_label: string
     light_mode: string
     dark_mode: string
+    profile_title: string
+    profile_button: string
+    profile_image_label: string
+    username_label: string
+    save_profile: string
+    error_message_not_logged_in: string
+    error_message: string
+    loading_user_data: string
+    error_loading_user_data: string
+    profile_updated_successfully: string
+    username_min_length_error: string
+    username_max_length_error: string
+    username_regex_error: string
+    username_reserved_error: string
+    username_start_error: string
+    username_end_error: string
+    delete_profile_picture_confirmation: string
   }
 }
 

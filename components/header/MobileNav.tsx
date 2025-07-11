@@ -2,12 +2,14 @@ import Link from 'next/link'
 import { Button } from '../common/Button'
 import { FaBars, FaGlobe } from 'react-icons/fa'
 import { User } from '@supabase/supabase-js'
-import { Dictionary, Language } from '@/types/type'
+import { Dictionary, Language } from '@/types/dictionaryType'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { useRef, useState } from 'react'
+import { UserProfile } from '@/types/userType'
 
 export default function MobileNav({
   user,
+  profile,
   isMobileMenuOpen,
   dict,
   currentLocale,
@@ -17,6 +19,7 @@ export default function MobileNav({
   redirectedPathName,
 }: {
   user: User | null
+  profile: UserProfile | null
   isMobileMenuOpen: boolean
   dict: Dictionary
   currentLocale: string
@@ -52,7 +55,7 @@ export default function MobileNav({
                     variant='tertiary'
                     size='sm'
                     onClick={() => setIsMobileMenuOpen(false)}>
-                    {user.email}
+                    {profile?.userName}
                   </Button>
                 </div>
                 <div className='border-t border-gray-200 dark:border-gray-700'></div>
@@ -125,16 +128,6 @@ export default function MobileNav({
                 </div>
               </>
             )}
-            <div className='border-t border-gray-200 dark:border-gray-700'></div>
-            <Link
-              href={`/${currentLocale}/terms`}
-              onClick={() => setIsMobileMenuOpen(false)}>
-              <Button
-                variant='tertiary'
-                size='sm'>
-                {dict.header.terms}
-              </Button>
-            </Link>
           </nav>
         </div>
       )}

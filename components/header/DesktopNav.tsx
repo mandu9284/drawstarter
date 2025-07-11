@@ -3,9 +3,10 @@ import { Button } from '../common/Button'
 import { FaGlobe, FaUser } from 'react-icons/fa'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import Link from 'next/link'
-import { Dictionary, Language } from '@/types/type'
+import { Dictionary, Language } from '@/types/dictionaryType'
 import { UserProfile } from '@/types/userType'
-import Image from 'next/image'
+import { SupabaseImage } from '../common/SupabaseImage'
+import { CiLogout, CiSettings } from 'react-icons/ci'
 
 export default function DesktopNav({
   user,
@@ -44,12 +45,12 @@ export default function DesktopNav({
               aria-haspopup='true'
               aria-expanded={isOpen}>
               {profile?.profilePictureUrl ? (
-                <Image
-                  src={profile.profilePictureUrl}
-                  alt='Profile'
-                  width={32}
-                  height={32}
-                  className='w-8 h-8 rounded-full'
+                <SupabaseImage
+                  src={`avatars/${profile?.profilePictureUrl}`}
+                  alt='Profile Picture'
+                  width={48}
+                  height={48}
+                  quality={50}
                 />
               ) : (
                 <FaUser className='text-lg' />
@@ -60,51 +61,42 @@ export default function DesktopNav({
             </Button>
 
             {isOpen && (
-              <div className='absolute right-0 mt-2 w-50 rounded-md shadow-lg py-1 z-50 dark:bg-gray-800 bg-white'>
-                <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
-                  <Button
-                    variant='tertiary'
-                    size='sm'>
-                    {profile?.userName}
-                  </Button>
+              <div
+                className='absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 z-50 ml-4 dark:bg-gray-800 bg-white'
+                role='menu'
+                aria-orientation='vertical'
+                aria-labelledby='user-menu'>
+                <div className='px-4 py-3 border-b border-gray-100 dark:border-gray-700'>
+                  <p className='text-sm font-medium text-gray-900 dark:text-white text-left'>
+                    {profile?.userName || ''}
+                  </p>
+                  <p className='text-sm text-gray-500 dark:text-gray-300 truncate text-left'>
+                    {user?.email || ''}
+                  </p>
                 </div>
-                <div className='border-t border-gray-200 dark:border-gray-700'></div>
-                <Link
-                  href={`/${currentLocale}/settings`}
-                  onClick={() => setIsOpen(false)}>
-                  <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
-                    <Button
-                      variant='tertiary'
-                      size='sm'>
+                <ul
+                  className='py-1'
+                  role='none'>
+                  <li>
+                    <Link
+                      href={`/${currentLocale}/settings`}
+                      className='flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white'
+                      role='menuitem'
+                      onClick={() => setIsOpen(false)}>
+                      <CiSettings className='mr-3 text-lg' />
                       {dict.header.settings}
-                    </Button>
-                  </div>
-                </Link>
-                <div className='border-t border-gray-200 dark:border-gray-700'></div>
-                <Link
-                  href={`/${currentLocale}/settings`}
-                  onClick={() => setIsOpen(false)}>
-                  <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
-                    <Button
-                      variant='tertiary'
-                      size='sm'
-                      onClick={handleLogout}>
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className='flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer'
+                      role='menuitem'>
+                      <CiLogout className='mr-3 text-lg' />
                       {dict.auth.logout}
-                    </Button>
-                  </div>
-                </Link>
-                <div className='border-t border-gray-200 dark:border-gray-700'></div>
-                <Link
-                  href={`/${currentLocale}/terms`}
-                  onClick={() => setIsOpen(false)}>
-                  <div className='flex items-center text-sm hover:bg-gray-100 dark:hover:bg-gray-700'>
-                    <Button
-                      variant='tertiary'
-                      size='sm'>
-                      {dict.header.terms}
-                    </Button>
-                  </div>
-                </Link>
+                    </button>
+                  </li>
+                </ul>
               </div>
             )}
           </div>

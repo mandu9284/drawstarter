@@ -1,36 +1,11 @@
 'use client'
 
-import { Dictionary } from '@/types/type'
-import { createContext, ReactNode, useContext } from 'react'
-
-interface DictionaryContextType {
-  dict: Dictionary
-  lang: string
-}
-
-const DictionaryContext = createContext<DictionaryContextType | undefined>(
-  undefined,
-)
-
-export function DictionaryProvider({
-  children,
-  dict,
-  lang,
-}: {
-  children: ReactNode
-  dict: Dictionary
-  lang: string
-}) {
-  return (
-    <DictionaryContext.Provider value={{ dict, lang }}>
-      {children}
-    </DictionaryContext.Provider>
-  )
-}
+import { DictionaryContext } from '@/context/DictionaryContext'
+import { useContext } from 'react'
 
 export function useDictionary() {
   const context = useContext(DictionaryContext)
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useDictionary must be used within a DictionaryProvider')
   }
   return context

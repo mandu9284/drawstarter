@@ -1,6 +1,6 @@
 'use client'
 
-import { Dictionary } from '@/types/type'
+import { Dictionary } from '@/types/dictionaryType'
 
 export function DoneMessage({ dict }: { dict: Dictionary }) {
   return (
