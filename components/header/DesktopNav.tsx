@@ -1,11 +1,11 @@
 import { User } from '@supabase/supabase-js'
-import { Button } from '../common/Button'
+import { Button } from '@/components/common/Button'
 import { FaGlobe, FaUser } from 'react-icons/fa'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import Link from 'next/link'
 import { Dictionary, Language } from '@/types/dictionaryType'
 import { UserProfile } from '@/types/userType'
-import { SupabaseImage } from '../common/SupabaseImage'
+import { AvatarImage } from '@/components/common/AvartarImage'
 import { CiLogout, CiSettings } from 'react-icons/ci'
 
 export default function DesktopNav({
@@ -45,7 +45,7 @@ export default function DesktopNav({
               aria-haspopup='true'
               aria-expanded={isOpen}>
               {profile?.profilePictureUrl ? (
-                <SupabaseImage
+                <AvatarImage
                   src={`avatars/${profile?.profilePictureUrl}`}
                   alt='Profile Picture'
                   width={48}

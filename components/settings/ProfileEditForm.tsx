@@ -11,7 +11,7 @@ import {
   upsertProfilePicture,
   deleteProfilePicture,
 } from '@/lib/supabaseQueries'
-import { SupabaseImage } from '../common/SupabaseImage'
+import { AvatarImage } from '../common/AvartarImage'
 import { AVATARS_BUCKET_ID } from '@/types/supabaseType'
 import { FaMinus, FaUpload } from 'react-icons/fa'
 import { z } from 'zod'
@@ -181,7 +181,7 @@ export default function ProfileEditForm() {
           />
         </label>
         {previewImage ? (
-          <SupabaseImage
+          <AvatarImage
             src={previewImage}
             alt='Profile Preview'
             width={128}
@@ -193,6 +193,8 @@ export default function ProfileEditForm() {
             alt='Profile Preview'
             width={128}
             height={128}
+            priority={true}
+            className='object-cover rounded-full'
           />
         )}
       </div>
