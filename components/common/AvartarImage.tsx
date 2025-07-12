@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const projectId = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_ID || ''
 
-export const SupabaseImage = ({
+export const AvatarImage = ({
   src,
   alt,
   width,
@@ -33,7 +33,7 @@ export const SupabaseImage = ({
 
   return (
     <Image
-      className='object-cover rounded-full w-100% h-auto'
+      className='object-cover rounded-full'
       src={src}
       alt={alt}
       width={width}
