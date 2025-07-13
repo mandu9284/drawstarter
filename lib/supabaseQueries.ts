@@ -5,6 +5,7 @@ interface GetUserProfileResponse {
   profile_picture_url: string
 }
 
+// user_profiles
 export const getUserProfile = async (
   userId: string,
 ): Promise<GetUserProfileResponse | null> => {
@@ -22,21 +23,6 @@ export const getUserProfile = async (
   return data
 }
 
-export const upsertProfilePicture = async (
-  filePath: string,
-  profileImage: File,
-): Promise<void> => {
-  const { error: uploadError } = await supabase.storage
-    .from('avatars')
-    .upload(filePath, profileImage, {
-      upsert: true,
-    })
-
-  if (uploadError) {
-    throw new Error('Error uploading profile picture', uploadError)
-  }
-}
-
 export const updateProfile = async (
   userId: string,
   userName: string,
@@ -50,6 +36,7 @@ export const updateProfile = async (
     throw new Error('Supabase user_profiles update error', updateError)
   }
 }
+
 export const updateProfilePicture = async (
   userId: string,
   profilePictureUrl: string | null,
@@ -61,6 +48,22 @@ export const updateProfilePicture = async (
 
   if (updateError) {
     throw new Error('Supabase user_profiles update error', updateError)
+  }
+}
+
+// avatars bucket
+export const upsertProfilePicture = async (
+  filePath: string,
+  profileImage: File,
+): Promise<void> => {
+  const { error: uploadError } = await supabase.storage
+    .from('avatars')
+    .upload(filePath, profileImage, {
+      upsert: true,
+    })
+
+  if (uploadError) {
+    throw new Error('Error uploading profile picture', uploadError)
   }
 }
 

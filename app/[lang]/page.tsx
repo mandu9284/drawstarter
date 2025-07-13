@@ -5,6 +5,7 @@ import { PromptCard } from '@/components/home/PromptCard'
 import { RecordItem } from '@/components/home/RecordItem'
 import { useDictionary } from '@/hooks/useDictionary'
 import { useUser } from '@/hooks/useUser'
+import { getUtcRange } from '@/lib/day'
 import { getRandomPrompt } from '@/lib/prompt'
 import { supabase } from '@/lib/supabaseClient'
 import { SupportedLanguage } from '@/types/dictionaryType'
@@ -44,12 +45,14 @@ export default function Page() {
       setTotalMinutes(total)
     }
 
-    const today = new Date().toISOString().slice(0, 10)
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+    const { startUtc, endUtc } = getUtcRange(userTimeZone, 'day')
     const { data: todayData, error: todayError } = await supabase
       .from('time_logs')
       .select('duration_minutes')
       .eq('user_id', user.id)
-      .eq('logged_at', today)
+      .gte('created_at', startUtc)
+      .lte('created_at', endUtc)
 
     if (todayError) {
       console.error('Error fetching today time:', todayError)
