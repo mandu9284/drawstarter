@@ -28,6 +28,11 @@ export const AvatarImage = ({
 
     // NOTE: width is overridden by supabase
     const halfWidth = width / 2
+
+    if (halfWidth * 2 === aspectRatioHeight) {
+      return `https://${projectId}.supabase.co/storage/v1/render/image/public/${src}?width=${width}&height=${aspectRatioHeight}&quality=${quality || 75}`
+    }
+
     return `https://${projectId}.supabase.co/storage/v1/render/image/public/${src}?width=${halfWidth}&height=${aspectRatioHeight}&quality=${quality || 75}`
   }
 
