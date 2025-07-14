@@ -6,6 +6,7 @@ import { Dictionary, Language } from '@/types/dictionaryType'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { useRef, useState } from 'react'
 import { UserProfile } from '@/types/userType'
+import { setCookie } from '@/lib/cookie'
 
 export default function MobileNav({
   user,
@@ -114,6 +115,7 @@ export default function MobileNav({
                           onClick={() => {
                             setIsLanguageOpen(false)
                             setIsMobileMenuOpen(false)
+                            setCookie('NEXT_LOCALE', language.code, 365)
                           }}>
                           <span>{language.flag}</span>
                           <Button
