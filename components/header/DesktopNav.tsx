@@ -7,6 +7,7 @@ import { Dictionary, Language } from '@/types/dictionaryType'
 import { UserProfile } from '@/types/userType'
 import { AvatarImage } from '@/components/common/AvartarImage'
 import { CiLogout, CiSettings } from 'react-icons/ci'
+import { setCookie } from '@/lib/cookie'
 
 export default function DesktopNav({
   user,
@@ -132,7 +133,10 @@ export default function DesktopNav({
                     key={language.code}
                     href={redirectedPathName(language.code)}
                     className='flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
-                    onClick={() => setIsOpen(false)}>
+                    onClick={() => {
+                      setIsOpen(false)
+                      setCookie('NEXT_LOCALE', language.code, 365)
+                    }}>
                     <span className='mr-2'>{language.flag}</span>
                     {language.name}
                   </Link>

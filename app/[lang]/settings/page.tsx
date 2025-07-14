@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useUser } from '@/hooks/useUser'
 import { useTheme } from '@/hooks/useTheme'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
+import { setCookie } from '@/lib/cookie'
 
 export default function SettingsPage() {
   const { dict, lang } = useDictionary()
@@ -14,6 +15,8 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme()
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // set cookie
+    setCookie('NEXT_LOCALE', e.target.value, 365)
     redirect(`/${e.target.value}/settings`)
   }
 
