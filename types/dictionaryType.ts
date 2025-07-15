@@ -98,6 +98,17 @@ export interface Dictionary {
     username_end_error: string
     delete_profile_picture_confirmation: string
   }
+  contact: {
+    title: string
+    description: string
+    name: string
+    email: string
+    message: string
+    submit: string
+    submitting: string
+    submit_success_title: string
+    submit_success_message: string
+  }
 }
 
 export interface Language {
