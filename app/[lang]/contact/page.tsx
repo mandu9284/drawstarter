@@ -36,63 +36,71 @@ function ContactPage() {
 
   if (isSubmitted) {
     return (
-      <div className="mx-auto max-w-2xl text-center">
-        <h1 className="mb-4 text-2xl font-bold">{dict.contact.submit_success_title}</h1>
-        <p className="text-gray-600">{dict.contact.submit_success_message}</p>
+      <div className='mx-auto max-w-2xl text-center'>
+        <h1 className='mb-4 text-2xl font-bold'>
+          {dict.contact.submit_success_title}
+        </h1>
+        <p className='text-gray-600'>{dict.contact.submit_success_message}</p>
       </div>
     )
   }
 
   return (
-    <div className="mx-auto max-w-2xl">
-      <h1 className="mb-4 text-2xl font-bold">{dict.contact.title}</h1>
-      <p className="mb-8 text-gray-600">{dict.contact.description}</p>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className='mx-auto max-w-2xl'>
+      <h1 className='mb-4 text-2xl font-bold'>{dict.contact.title}</h1>
+      <p className='mb-8 text-gray-600'>{dict.contact.description}</p>
+      <form
+        onSubmit={handleSubmit}
+        className='space-y-4'>
         <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
+          <label
+            htmlFor='name'
+            className='mb-2 block text-sm font-medium text-gray-700'>
             {dict.contact.name}
           </label>
           <input
-            type="text"
-            id="name"
-            name="name"
+            type='text'
+            id='name'
+            name='name'
             required
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border-2 dark:border-gray-600"
+            className='block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border-2 dark:border-gray-600'
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
+          <label
+            htmlFor='email'
+            className='mb-2 block text-sm font-medium text-gray-700'>
             {dict.contact.email}
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type='email'
+            id='email'
+            name='email'
             required
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border-2 dark:border-gray-600"
+            className='block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border-2 dark:border-gray-600'
           />
         </div>
         <div>
-          <label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-700">
+          <label
+            htmlFor='message'
+            className='mb-2 block text-sm font-medium text-gray-700'>
             {dict.contact.message}
           </label>
           <textarea
-            id="message"
-            name="message"
+            id='message'
+            name='message'
             rows={4}
             required
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border-2 dark:border-gray-600"
-          ></textarea>
+            className='block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border-2 dark:border-gray-600'></textarea>
         </div>
         <Button
-          type="submit"
-          variant="primary"
-          className="w-full md:w-auto"
-          disabled={isSubmitting}
-        >
+          type='submit'
+          variant='primary'
+          className='w-full md:w-auto'
+          disabled={isSubmitting}>
           {isSubmitting ? dict.contact.submitting : dict.contact.submit}
         </Button>
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className='text-red-500'>{error}</p>}
       </form>
     </div>
   )
