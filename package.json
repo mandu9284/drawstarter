@@ -1,7 +1,14 @@
 {
   "name": "drawstarter",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "author": "mandu9284",
+  "description": "DrawStarter",
+  "bugs": {
+    "url": "https://github.com/mandu9284/drawstarter/issues",
+    "email": "mandu9284@gmail.com"
+  },
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
