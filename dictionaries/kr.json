@@ -107,5 +107,16 @@
     ],
     "terms_of_service": "이용약관",
     "privacy_policy": "개인정보처리방침"
+  },
+  "contact": {
+    "title": "문의하기",
+    "description": "궁금한 점이 있으시면 언제든지 문의해주세요.",
+    "name": "이름",
+    "email": "이메일",
+    "message": "메시지",
+    "submit": "제출",
+    "submitting": "제출 중...",
+    "submit_success_title": "감사합니다!",
+    "submit_success_message": "메시지가 성공적으로 전송되었습니다."
   }
 }

@@ -24,6 +24,11 @@ export default function Footer({
         className='text-xs text-gray-500 hover:underline hover:text-blue-500'>
         {dict.metadata.privacy_policy}
       </Link>
+      <Link
+        href={`/${lang}/contact`}
+        className='text-xs text-gray-500 hover:underline hover:text-blue-500'>
+        {dict.contact.title}
+      </Link>
     </footer>
   )
 }

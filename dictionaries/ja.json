@@ -108,5 +108,16 @@
     ],
     "terms_of_service": "利用規約",
     "privacy_policy": "プライバシーポリシー"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "description": "ご不明な点がございましたら、お気軽にお問い合わせください。",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "メッセージ",
+    "submit": "送信",
+    "submitting": "送信中...",
+    "submit_success_title": "ありがとうございます！",
+    "submit_success_message": "メッセージは正常に送信されました。"
   }
 }

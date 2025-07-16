@@ -111,5 +111,16 @@
     ],
     "terms_of_service": "Terms of Service",
     "privacy_policy": "Privacy Policy"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "If you have any questions, please feel free to contact us.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "submit_success_title": "Thank you!",
+    "submit_success_message": "Your message has been sent successfully."
   }
 }
