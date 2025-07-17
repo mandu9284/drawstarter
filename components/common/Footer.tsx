@@ -14,7 +14,7 @@ export default function Footer({
         © DrawStarter. All rights reserved.
       </p>
       <p className='text-xs text-gray-500'>
-        Version: {process.env.npm_package_version}
+        Version: {process.env.APP_VERSION}
       </p>
       <Link
         href={`/${lang}/terms`}
