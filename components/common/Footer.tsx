@@ -13,7 +13,9 @@ export default function Footer({
       <p className='text-xs text-gray-500'>
         © DrawStarter. All rights reserved.
       </p>
-      <p className='text-xs text-gray-500'>Version: 1.0.0</p>
+      <p className='text-xs text-gray-500'>
+        Version: {process.env.APP_VERSION}
+      </p>
       <Link
         href={`/${lang}/terms`}
         className='text-xs text-gray-500 hover:underline hover:text-blue-500'>
