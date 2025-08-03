@@ -1,40 +1,40 @@
-name: 버그 리포트
-description: 발견한 문제를 보고하고 싶을 때
-title: '[버그] '
+name: Bug Report
+description: Report a problem you've encountered
+title: '[Bug] '
 labels: ['bug']
 body:
   - type: textarea
     id: what
     attributes:
-      label: 어떤 문제가 발생했나요?
-      placeholder: 예) 타이머가 0초에서 두 번 종료 처리됨
+      label: What problem occurred?
+      placeholder: e.g.) The timer finishes twice at 0 seconds
     validations:
       required: true
 
   - type: textarea
     id: steps
     attributes:
-      label: 재현 방법
-      description: 버그가 재현되는 단계를 구체적으로 적어주세요
+      label: Steps to reproduce
+      description: Please provide specific steps to reproduce the bug
       placeholder: |
-        1. draw 페이지로 이동
-        2. 타이머 시작
-        3. 0초가 되었을 때...
+        1. Go to the draw page
+        2. Start the timer
+        3. When it reaches 0 seconds...
     validations:
       required: false
 
   - type: input
     id: env
     attributes:
-      label: 실행 환경
-      placeholder: 예) MacOS / Chrome 125
+      label: Environment
+      placeholder: e.g.) MacOS / Chrome 125
     validations:
       required: false
 
   - type: textarea
     id: notes
     attributes:
-      label: 추가 정보
-      placeholder: 스크린샷이나 관련 로그가 있다면 포함해주세요
+      label: Additional Information
+      placeholder: Please include screenshots or relevant logs if available
     validations:
       required: false
