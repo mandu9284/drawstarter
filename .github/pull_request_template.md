@@ -1,26 +1,26 @@
-## 변경 내경
+## Description
 
-<!-- 변경 내용의 개요를 기재해주세요 -->
+<!-- Please provide an overview of the changes -->
 
-## 변경 이유
+## Reason for change
 
-<!-- 왜 이 변경이 필요한지 기재해주세요 -->
+<!-- Please describe why this change is necessary -->
 
-## 확인 항목
+## Checklist
 
-- [ ] 테스트를 추가 또는 업데이트했습니다
-- [ ] 문서를 업데이트했습니다（필요한 경우）
-- [ ] 관련 이슈를 링크했습니다
-- [ ] 코드 검토의 지적 사항에 대응했습니다
+- [ ] Added or updated tests
+- [ ] Updated documentation (if necessary)
+- [ ] Linked related issues
+- [ ] Addressed code review comments
 
-## 스크린샷
+## Screenshots
 
-<!-- UI 의 변경이 있는 경우, before/after 의 스크린샷을 첨부해주세요 -->
+<!-- If there are UI changes, please attach before/after screenshots -->
 
-## 관련 이슈
+## Related Issues
 
-<!-- 관련 이슈가 있는 경우, "#이슈 번호" 의 형식으로 기재해주세요 -->
+<!-- If there are related issues, please list them in the format "#issue number" -->
 
-## 기타
+## Other
 
-<!-- 기타, 검토자에게 전달할 내용이 있으면 기재해주세요 -->
+<!-- Please provide any other information for the reviewer -->
