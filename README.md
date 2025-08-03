@@ -16,16 +16,16 @@
 
 ## 🔧 Tech Stack
 
-| Category          | Technology                                                                    |
-| ----------------- | ----------------------------------------------------------------------------- |
-| **Framework**     | [Next.js (App Router)](https://nextjs.org/)                                   |
-| **Language**      | [TypeScript](https://www.typescriptlang.org/)                                 |
-| **Styling**       | [Tailwind CSS](https://tailwindcss.com/)                                      |
-| **Backend & DB**  | [Supabase](https://supabase.io/) (Auth, Database, Storage)                    |
-| **State Management**| [React Context API](https://react.dev/learn/passing-data-deeply-with-context) |
-| **Code Quality**  | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)               |
-| **CI/CD**         | [GitHub Actions](https://github.com/features/actions)                         |
-| **Deployment**    | [Vercel](https://vercel.com/)                                                 |
+| Category             | Technology                                                                    |
+| -------------------- | ----------------------------------------------------------------------------- |
+| **Framework**        | [Next.js (App Router)](https://nextjs.org/)                                   |
+| **Language**         | [TypeScript](https://www.typescriptlang.org/)                                 |
+| **Styling**          | [Tailwind CSS](https://tailwindcss.com/)                                      |
+| **Backend & DB**     | [Supabase](https://supabase.io/) (Auth, Database, Storage)                    |
+| **State Management** | [React Context API](https://react.dev/learn/passing-data-deeply-with-context) |
+| **Code Quality**     | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)               |
+| **CI/CD**            | [GitHub Actions](https://github.com/features/actions)                         |
+| **Deployment**       | [Vercel](https://vercel.com/)                                                 |
 
 ---
 
