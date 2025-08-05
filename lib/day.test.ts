@@ -32,7 +32,6 @@ describe('getUtcRange', () => {
   })
 })
 
-
 // year
 vi.setSystemTime(new Date('2021-12-31T15:00:00.000Z'))
 describe('getUtcRange', () => {
