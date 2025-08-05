@@ -7,8 +7,8 @@ import { useUser } from '@/hooks/useUser'
 import { supabase } from '@/lib/supabaseClient'
 import { languages } from '@/types/dictionaryType'
 import { Dictionary } from '@/types/dictionaryType'
-import DesktopNav from '../header/DesktopNav'
-import MobileNav from '../header/MobileNav'
+import DesktopNav from '@/components/header/DesktopNav'
+import MobileNav from '@/components/header/MobileNav'
 import { useUserProfile } from '@/hooks/useUserProfile'
 
 export function Header({ dict }: { dict: Dictionary }) {
