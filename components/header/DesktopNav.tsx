@@ -51,7 +51,6 @@ export default function DesktopNav({
                   alt='Profile Picture'
                   width={48}
                   height={48}
-                  quality={50}
                 />
               ) : (
                 <FaUser className='text-lg' />

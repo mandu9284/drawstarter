@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { useUser } from '@/hooks/useUser'
 import { useDictionary } from '@/hooks/useDictionary'
-import { Button } from '../common/Button'
+import { Button } from '@/components/common/Button'
 import { useUserProfile } from '@/hooks/useUserProfile'
 import {
   updateProfile,
@@ -11,7 +11,7 @@ import {
   upsertProfilePicture,
   deleteProfilePicture,
 } from '@/lib/supabaseQueries'
-import { AvatarImage } from '../common/AvartarImage'
+import { AvatarImage } from '@/components/common/AvartarImage'
 import { AVATARS_BUCKET_ID } from '@/types/supabaseType'
 import { FaMinus, FaUpload } from 'react-icons/fa'
 import { z } from 'zod'
